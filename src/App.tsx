@@ -18,6 +18,11 @@ function App() {
         >
           Learn React
         </a>
+        <div className="grid grid-cols-3 gap-4">
+          <div>1</div>
+          <div>2</div>
+          <div>9</div>
+        </div>
       </header>
     </div>
   );
