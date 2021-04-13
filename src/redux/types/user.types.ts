@@ -1,12 +1,18 @@
+export const USER_AUTHENTICATED = "USER_AUTHENTICATED"
 export const GET_CURRENT_USER = "GET_CURRENT_USER"
 
 export type UserType = {
-    profile: ProfileType;
+    isAuthenticated: boolean
+    user: {
+        profile: {
+            first_name: string
+            last_name: string
+        }
+    }
 }
 
-export declare type ProfileType = {
-    first_name: string
-    last_name: string
+export declare type isAuthenticated = {
+    type: boolean
 }
 
 export interface CurrentUser {

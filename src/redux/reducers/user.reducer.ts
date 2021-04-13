@@ -1,13 +1,15 @@
-import {GET_CURRENT_USER, ProfileType, UserDispatchTypes, UserType} from "../types/user.types";
+import {GET_CURRENT_USER, UserDispatchTypes, UserType} from "../types/user.types";
 
 interface IDefaultUser {
+    isAuthenticated: boolean
     loading: boolean
-    profile?: ProfileType
+    profile?: UserType
 }
 
 const INITIAL_STATE: IDefaultUser = {
+    isAuthenticated: false,
     loading: true,
-    // user: undefined,
+    profile: undefined,
 }
 
 const userReducer = (state: IDefaultUser = INITIAL_STATE , action: UserDispatchTypes): IDefaultUser => {
@@ -16,7 +18,7 @@ const userReducer = (state: IDefaultUser = INITIAL_STATE , action: UserDispatchT
             return {
                 ...state,
                 loading: false,
-                // profile: action.payload
+                profile: action.payload
             }
         default:
             return state

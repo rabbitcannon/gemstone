@@ -10,7 +10,7 @@ class MenuProfile extends Component<StateFromProps, {}> {
     render() {
         const { user } = this.props
 console.log("User: ", user)
-console.log("Profile: ", user.profile)
+// console.log("Profile: ", user.profile)
         return (
             <div className="flex-shrink-0 flex p-4">
                 <a href="#" className="flex-shrink-0 w-full group block">
