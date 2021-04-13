@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "../node_modules/animate.css/animate.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,600;0,700;1,200&display=swap');
+
 body {
-  /*background-color: #071422;*/
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(7,20,34,1) 55%);
+  background-color: #02111C;
+  background-image: url("assets/images/backgrounds/architecture.jpeg");
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -17,4 +19,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
+}
+
+.lift {
+  z-index: 1;
+}
+
+body {
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: none;
 }
