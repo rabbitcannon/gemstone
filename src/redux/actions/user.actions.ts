@@ -1,8 +1,10 @@
 import { Dispatch } from "redux";
 import Axios from "axios";
+import { push } from 'connected-react-router'
 
-import { UserDispatchTypes, UserTypes, User } from '../types/user.types'
+import { UserTypes, User } from '../types/user.types'
 import { API_URL } from "../../common/filepaths";
+
 
 /*
 Action Interfaces
@@ -32,7 +34,6 @@ export const loginCurrentUser = () => {
                 type: UserTypes.LOGIN_USER,
                 payload: true
             })
-
             // window.location.href = "/dashboard"
         }
         catch (error) {
@@ -49,7 +50,7 @@ export const loginCurrentUser = () => {
 Get Current User Information
  */
 export const getCurrentUser = () => {
-    return async (dispatch: Dispatch<UserDispatchTypes> ) => {
+    return async (dispatch: Dispatch ) => {
         const result = await Axios.get<User>(API_URL + "user")
 
         try {
@@ -57,7 +58,8 @@ export const getCurrentUser = () => {
                 type: UserTypes.GET_USER,
                 payload: result.data
             })
-            // window.location.href = "/dashboard"
+
+            dispatch(push("/dashboard"))
         }
         catch (error) {
             dispatch({
