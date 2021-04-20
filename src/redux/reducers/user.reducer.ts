@@ -1,14 +1,13 @@
-import {
-    GET_USER,
-    UserDispatchTypes,
-    UserType
-} from "../types/user.types";
+import { User, UserTypes } from "../types/user.types";
+import { GetUserAction, GetUserErrorAction, LogInUser } from "../actions/user.actions";
+
+type UserActions = LogInUser | GetUserAction | GetUserErrorAction
 
 interface IDefaultUser {
     isAuthenticated: boolean
     loading: boolean
     error: string | null
-    profile?: UserType
+    profile?: User
 }
 
 const INITIAL_STATE: IDefaultUser = {
@@ -18,25 +17,27 @@ const INITIAL_STATE: IDefaultUser = {
     profile: undefined,
 }
 
-// interface IAction {
-//     type: string
-//     payload?: UserType
-// }
-
-const userReducer = (state: IDefaultUser = INITIAL_STATE , action: UserDispatchTypes): IDefaultUser => {
+const userReducer = (state: IDefaultUser = INITIAL_STATE, action: UserActions): IDefaultUser => {
     switch (action.type) {
-        case GET_USER:
+        case UserTypes.LOGIN_USER:
+            return {
+                ...state,
+                isAuthenticated: action.payload,
+            }
+
+        case UserTypes.GET_USER:
             return {
                 ...state,
                 loading: false,
                 profile: action.payload
             }
 
-        // case GET_USER_ERROR:
-        //     return {
-        //         loading: false,
-        //         error: action.payload
-        //     }
+        case UserTypes.GET_USER_ERROR:
+            return {
+                ...state,
+                loading: false,
+            }
+
         default:
             return state
     }

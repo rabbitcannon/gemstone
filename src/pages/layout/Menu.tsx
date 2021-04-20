@@ -8,31 +8,8 @@ import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
 
 import BedrockLogo from '../../assets/images/logo/bedrock_w.svg'
 
-// interface UserType {
-//     first_name: string
-//     last_name: string
-// }
-//
-// interface IState {
-//     readonly user?: object | null
-// }
-//
-// interface IProps {
-//     readonly user?: UserType | undefined
-// }
-
 class Menu extends Component {
-// class Menu extends Component<IProps, IState> {
-//     constructor(props: IProps) {
-//         super(props)
-//
-//         this.state = {
-//             user: props.user
-//         }
-//     }
-
     render() {
-        // const { user } = this.props
 
         return (
             <>

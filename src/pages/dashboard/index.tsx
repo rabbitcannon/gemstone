@@ -6,14 +6,19 @@ import DashboardHeader from "./Header"
 import Stats from "./Stats"
 
 import { connect } from 'react-redux'
-import { getCurrentUser } from "../../redux/actions/user.actions";
+// import { getCurrentUser } from "../../redux/actions/user.actions";
 
 import { API_URL } from '../../common/filepaths'
 
+// interface IProps {
+//     getCurrentUser: () => any
+// }
+
+// class DashboardIndex extends Component<IProps> {
 class DashboardIndex extends Component {
-    componentDidMount() {
-        getCurrentUser()
-    }
+    // componentDidMount() {
+    //     this.props.getCurrentUser()
+    // }
 
     componentDidUpdate() {
         this.checkIfLoggedIn()
@@ -78,9 +83,11 @@ class DashboardIndex extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-    getCurrentUser: () => dispatch(getCurrentUser())
-})
+// const mapDispatchToProps = (dispatch: any) => ({
+//     getCurrentUser: () => dispatch(getCurrentUser())
+// })
+//
+// export default connect(null, mapDispatchToProps)(DashboardIndex);
 
-export default connect(null, mapDispatchToProps)(DashboardIndex);
+export default DashboardIndex
 

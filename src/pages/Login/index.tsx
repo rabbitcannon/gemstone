@@ -3,20 +3,26 @@ import Axios from 'axios'
 import {
     CSRF_COOKIE_URL, LOGIN_URL
 } from '../../common/filepaths'
-
+import { getCurrentUser, loginCurrentUser } from "../../redux/actions/user.actions";
 
 import loaderImage from '../../assets/images/preloaders/light/preloader_w24.svg'
 import "./index.scss"
 
 import TagLogo from "../../assets/images/logo/tag-logo.svg"
+import { connect } from "react-redux";
 
 interface State {
     isLoading: boolean
-    username?: string | undefined
-    password?: string | undefined
+    username: string | undefined
+    password: string | undefined
 }
 
-class Index extends Component<{}, State> {
+interface IProps {
+    loginCurrentUser: () => boolean
+    getCurrentUser: () => any
+}
+
+class Index extends Component<IProps, State> {
     readonly loginInputRef: any
 
     constructor(props: any) {
@@ -56,7 +62,8 @@ class Index extends Component<{}, State> {
                 password: password
             }).then((response: any) => {
                 if(response.status === 204) {
-                    window.location.replace("/dashboard")
+                    // this.props.loginCurrentUser()
+                    this.props.getCurrentUser()
                 }
             }).catch(error => {
                 this.modifyLoadingState()
@@ -136,4 +143,11 @@ class Index extends Component<{}, State> {
     }
 }
 
-export default Index;
+const mapDispatchToProps = (dispatch: any) => ({
+    loginCurrentUser: () => dispatch(loginCurrentUser()),
+    getCurrentUser: () => dispatch(getCurrentUser())
+})
+
+export default connect(null, mapDispatchToProps)(Index);
+
+// export default Index;

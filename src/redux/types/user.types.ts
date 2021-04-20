@@ -1,8 +1,10 @@
-// export const USER_AUTHENTICATED = "USER_AUTHENTICATED"
-export const GET_USER = "GET_USER"
-// export const GET_USER_ERROR = "GET_USER_ERROR"
+export enum UserTypes {
+    LOGIN_USER = "LOGIN_USER",
+    GET_USER = "GET_USER",
+    GET_USER_ERROR = "GET_USER_ERROR"
+}
 
-export type UserType = {
+export type User = {
     isAuthenticated: boolean
     user: {
         profile: {
@@ -17,8 +19,8 @@ export declare type isAuthenticated = {
 }
 
 export interface CurrentUser {
-    type: typeof GET_USER,
-    payload: UserType
+    type: typeof UserTypes.LOGIN_USER | UserTypes.GET_USER | UserTypes.GET_USER_ERROR,
+    payload: User
 }
 
 export type UserDispatchTypes = CurrentUser
