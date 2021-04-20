@@ -1,5 +1,4 @@
-import { createStore, applyMiddleware } from "redux"
-import { composeWithDevTools } from "redux-devtools-extension"
+import { compose, createStore, applyMiddleware } from "redux"
 import logger from 'redux-logger'
 import thunk from "redux-thunk"
 
@@ -10,7 +9,7 @@ const middleware = [
     thunk,
 ]
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middleware)))
+const store = createStore(rootReducer, compose(applyMiddleware(...middleware)))
 
 // export type RootStore = ReturnType<typeof rootReducer>
 

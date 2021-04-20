@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {UserType} from "../../redux/types/user.types";
+import { UserType } from "../../redux/types/user.types";
 
 interface StateFromProps {
-    user: UserType
+    readonly profile?: {
+        first_name: string
+        last_name: string
+    }
 }
 
 class MenuProfile extends Component<StateFromProps, {}> {
     render() {
-        const { user } = this.props
-console.log("User: ", user)
-// console.log("Profile: ", user.profile)
+        const { profile } = this.props
+console.log("Profile:", profile)
+
         return (
             <div className="flex-shrink-0 flex p-4">
                 <a href="#" className="flex-shrink-0 w-full group block">
@@ -22,7 +25,7 @@ console.log("User: ", user)
                         </div>
                         <div className="ml-3">
                             <p className="text-sm font-medium text-gray-300 group-hover:text-gray-600">
-                                {/*{user.profile.first_name} {user?.last_name}*/}
+                                {profile?.first_name} {profile?.last_name}
                             </p>
                             <p className="text-xs font-medium text-gray-100 group-hover:text-gray-500">
                                 View profile
@@ -34,11 +37,11 @@ console.log("User: ", user)
         );
     }
 }
-//---
-const mapStateToProps = (state: any) => {
-    console.log(state)
+
+const mapStateToProps = (state: UserType) => {
+    console.log("State: ", state)
     return {
-        user: state.user
+        profile: state.user.profile
     }
 }
 

@@ -17,6 +17,8 @@ interface State {
 }
 
 class Index extends Component<{}, State> {
+    readonly loginInputRef: any
+
     constructor(props: any) {
         super(props);
 
@@ -25,6 +27,12 @@ class Index extends Component<{}, State> {
             username: undefined,
             password: undefined
         }
+
+        this.loginInputRef = React.createRef<HTMLInputElement | null>()
+    }
+
+    componentDidMount() {
+        this.loginInputRef.current?.focus()
     }
 
     handleInputChanges = (event: any) => {
@@ -75,6 +83,7 @@ class Index extends Component<{}, State> {
                             <div>
                                 <div className="mt-1">
                                     <input id="username" name="username" type="txt" autoComplete="text"
+                                           ref={this.loginInputRef}
                                            required placeholder="username"
                                            onChange={this.handleInputChanges}
                                            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm" />

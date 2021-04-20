@@ -11,9 +11,12 @@ import { getCurrentUser } from "../../redux/actions/user.actions";
 import { API_URL } from '../../common/filepaths'
 
 class DashboardIndex extends Component {
+    componentDidMount() {
+        getCurrentUser()
+    }
+
     componentDidUpdate() {
         this.checkIfLoggedIn()
-        // getCurrentUser()
     }
 
     checkIfLoggedIn = () => {

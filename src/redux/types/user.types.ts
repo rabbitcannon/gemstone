@@ -1,5 +1,6 @@
-export const USER_AUTHENTICATED = "USER_AUTHENTICATED"
-export const GET_CURRENT_USER = "GET_CURRENT_USER"
+// export const USER_AUTHENTICATED = "USER_AUTHENTICATED"
+export const GET_USER = "GET_USER"
+// export const GET_USER_ERROR = "GET_USER_ERROR"
 
 export type UserType = {
     isAuthenticated: boolean
@@ -16,7 +17,7 @@ export declare type isAuthenticated = {
 }
 
 export interface CurrentUser {
-    type: typeof GET_CURRENT_USER,
+    type: typeof GET_USER,
     payload: UserType
 }
 
