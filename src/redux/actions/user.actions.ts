@@ -50,7 +50,7 @@ export const loginCurrentUser = () => {
 Get Current User Information
  */
 export const getCurrentUser = () => {
-    return async (dispatch: Dispatch ) => {
+    return async (dispatch: Dispatch<GetUserAction | any> ) => {
         const result = await Axios.get<User>(API_URL + "user")
 
         try {
@@ -62,10 +62,12 @@ export const getCurrentUser = () => {
             dispatch(push("/dashboard"))
         }
         catch (error) {
+            console.log("Error:", error)
             dispatch({
                 type: UserTypes.GET_USER_ERROR,
                 payload: error.message
             })
+            dispatch(push("/login"))
         }
     }
 }

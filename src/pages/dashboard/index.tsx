@@ -6,29 +6,33 @@ import DashboardHeader from "./Header"
 import Stats from "./Stats"
 
 import { connect } from 'react-redux'
-// import { getCurrentUser } from "../../redux/actions/user.actions";
+import { getCurrentUser } from "../../redux/actions/user.actions";
 
 import { API_URL } from '../../common/filepaths'
+import { push } from "connected-react-router";
 
-// interface IProps {
-//     getCurrentUser: () => any
-// }
+interface IProps {
+    getCurrentUser: () => object
+}
 
-// class DashboardIndex extends Component<IProps> {
-class DashboardIndex extends Component {
-    // componentDidMount() {
-    //     this.props.getCurrentUser()
-    // }
-
-    componentDidUpdate() {
-        this.checkIfLoggedIn()
+class DashboardIndex extends Component<IProps> {
+    componentDidMount() {
+        this.props.getCurrentUser()
+        // this.checkIfLoggedIn()
     }
 
-    checkIfLoggedIn = () => {
-        Axios.get(API_URL + "user").then(() => {
+    componentDidUpdate() {
+
+    }
+
+    checkIfLoggedIn = () => (dispatch: any) => {
+        Axios.get(API_URL + "user").then((response) => {
+            console.log(response)
         }).catch(error => {
+            console.log(error)
             if(error.response.status === 401) {
-                window.location.replace("/login")
+                console.log("test")
+                dispatch(push("/login"))
             }
         })
     }
@@ -83,11 +87,8 @@ class DashboardIndex extends Component {
     }
 }
 
-// const mapDispatchToProps = (dispatch: any) => ({
-//     getCurrentUser: () => dispatch(getCurrentUser())
-// })
-//
-// export default connect(null, mapDispatchToProps)(DashboardIndex);
+const mapDispatchToProps = (dispatch: any) => ({
+    getCurrentUser: () => dispatch(getCurrentUser())
+})
 
-export default DashboardIndex
-
+export default connect(null, mapDispatchToProps)(DashboardIndex);

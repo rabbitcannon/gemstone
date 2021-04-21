@@ -38,7 +38,6 @@ class MenuProfile extends Component<StateFromProps, {}> {
 }
 
 const mapStateToProps = (state: User) => {
-    console.log("State: ", state)
     return {
         profile: state.user.profile
     }

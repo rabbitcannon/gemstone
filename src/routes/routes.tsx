@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import TestComponent from "../pages/test/test";
 import Login from '../pages/Login/index'
 import Dashboard from '../pages/dashboard/index'
-import store, { history } from '../redux/store/store'
+import store, { history } from '../redux/store'
 import {Provider} from "react-redux";
 
 export const Routes = () => (
