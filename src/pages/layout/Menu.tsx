@@ -197,7 +197,8 @@ class Menu extends Component {
                                             </svg>
                                             Dashboard
                                         </a>
-                                        <MenuItem />
+                                        <MenuItem text="Dashboard" />
+                                        <MenuItem text="Not a dashboard"/>
                                         {/*<a href="#"*/}
                                         {/*   className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">*/}
                                         {/*    /!* Heroicon name: outline/calendar *!/*/}
