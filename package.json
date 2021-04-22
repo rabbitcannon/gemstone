@@ -61,12 +61,13 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.ts src/**/*.tsx"
+    "lint": "eslint src/**/*.ts src/**/*.tsx",
+    "postinstall": "husky install"
   },
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint && yarn prettier --write src",
-      "pre-push": "yarn lint && yarn prettier --write src "
+      "pre-push": "yarn lint && yarn prettier --write src"
     }
   },
   "eslintConfig": {
