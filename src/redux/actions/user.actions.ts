@@ -1,9 +1,9 @@
-import { Dispatch } from "redux"
-import Axios from "axios"
-import { push } from "connected-react-router"
+import { Dispatch } from 'redux'
+import Axios from 'axios'
+import { push } from 'connected-react-router'
 
-import { UserTypes, User } from "../types/user.types"
-import { API_URL } from "../../common/filepaths"
+import { UserTypes, User } from '../types/user.types'
+import { API_URL } from '../../common/filepaths'
 
 /*
 Action Interfaces
@@ -48,7 +48,7 @@ Get Current User Information
  */
 export const getCurrentUser = () => {
   return async (dispatch: Dispatch<GetUserAction | any>) => {
-    const result = await Axios.get<User>(API_URL + "user")
+    const result = await Axios.get<User>(API_URL + 'user')
 
     console.log(result)
 
@@ -58,14 +58,14 @@ export const getCurrentUser = () => {
         payload: result.data,
       })
 
-      dispatch(push("/dashboard"))
+      dispatch(push('/dashboard'))
     } catch (error) {
-      console.log("Error:", error)
+      console.log('Error:', error)
       dispatch({
         type: UserTypes.GET_USER_ERROR,
         payload: error.message,
       })
-      dispatch(push("/login"))
+      dispatch(push('/login'))
     }
   }
 }

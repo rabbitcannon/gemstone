@@ -1,7 +1,7 @@
 export enum UserTypes {
-  LOGIN_USER = "LOGIN_USER",
-  GET_USER = "GET_USER",
-  GET_USER_ERROR = "GET_USER_ERROR",
+  LOGIN_USER = 'LOGIN_USER',
+  GET_USER = 'GET_USER',
+  GET_USER_ERROR = 'GET_USER_ERROR',
 }
 
 export type User = {

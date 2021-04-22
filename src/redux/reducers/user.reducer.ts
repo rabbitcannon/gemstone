@@ -1,9 +1,9 @@
-import { User, UserTypes } from "../types/user.types"
+import { User, UserTypes } from '../types/user.types'
 import {
   GetUserAction,
   GetUserErrorAction,
   LogInUser,
-} from "../actions/user.actions"
+} from '../actions/user.actions'
 
 type UserActions = LogInUser | GetUserAction | GetUserErrorAction
 

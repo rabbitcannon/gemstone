@@ -1,12 +1,12 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
-import MenuProfile from "./MenuProfile"
-import MenuItem from "./components/MenuItem"
+import MenuProfile from './MenuProfile'
+import MenuItem from './components/MenuItem'
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTachometerAlt } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
 
-import BedrockLogo from "../../assets/images/logo/bedrock_w.svg"
+import BedrockLogo from '../../assets/images/logo/bedrock_w.svg'
 
 class Menu extends Component {
   render() {

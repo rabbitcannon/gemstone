@@ -1,8 +1,8 @@
-import { combineReducers } from "redux"
-import { History } from "history"
-import { connectRouter } from "connected-react-router"
+import { combineReducers } from 'redux'
+import { History } from 'history'
+import { connectRouter } from 'connected-react-router'
 
-import userReducer from "./user.reducer"
+import userReducer from './user.reducer'
 
 const rootReducer = (history: History) =>
   combineReducers({

@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
-import { User } from "../../redux/types/user.types"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { User } from '../../redux/types/user.types'
 
 interface StateFromProps {
   readonly profile?:

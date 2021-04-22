@@ -1,16 +1,16 @@
-const root = "/"
-const baseAccount = "/account"
+const root = '/'
+const baseAccount = '/account'
 
 export const RoutePaths = {
   root: root,
   account: {
-    login: "/Login",
+    login: '/Login',
     register: `${baseAccount}/register`,
   },
   dashboard: {
-    root: "/dashboard",
+    root: '/dashboard',
   },
   test: {
-    testRoute: "/test",
+    testRoute: '/test',
   },
 }

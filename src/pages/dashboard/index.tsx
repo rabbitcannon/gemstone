@@ -1,16 +1,16 @@
-import React, { Component } from "react"
-import Axios from "axios"
+import React, { Component } from 'react'
+import Axios from 'axios'
 
-import Menu from "../layout/Menu"
-import DashboardHeader from "./Header"
-import Stats from "./Stats"
+import Menu from '../layout/Menu'
+import DashboardHeader from './Header'
+import Stats from './Stats'
 
-import { connect } from "react-redux"
-import { getCurrentUser } from "../../redux/actions/user.actions"
+import { connect } from 'react-redux'
+import { getCurrentUser } from '../../redux/actions/user.actions'
 // import { useUserAction } from "../../redux/hooks/useActions"
 
-import { API_URL } from "../../common/filepaths"
-import { push } from "connected-react-router"
+import { API_URL } from '../../common/filepaths'
+import { push } from 'connected-react-router'
 
 interface IProps {
   getCurrentUser: () => object
