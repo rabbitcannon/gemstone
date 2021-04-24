@@ -43,7 +43,7 @@ class MenuProfile extends Component<StateFromProps, {}> {
 
 const mapStateToProps = (state: User) => {
   return {
-    profile: state.user.profile,
+    profile: state.user.profile
   }
 }
 

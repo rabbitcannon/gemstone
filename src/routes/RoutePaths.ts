@@ -5,12 +5,12 @@ export const RoutePaths = {
   root: root,
   account: {
     login: '/Login',
-    register: `${baseAccount}/register`,
+    register: `${baseAccount}/register`
   },
   dashboard: {
-    root: '/dashboard',
+    root: '/dashboard'
   },
   test: {
-    testRoute: '/test',
-  },
+    testRoute: '/test'
+  }
 }

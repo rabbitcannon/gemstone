@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Axios from 'axios'
+// import Axios from 'axios'
 
 import Menu from '../layout/Menu'
 import DashboardHeader from './Header'
@@ -9,8 +9,8 @@ import { connect } from 'react-redux'
 import { getCurrentUser } from '../../redux/actions/user.actions'
 // import { useUserAction } from "../../redux/hooks/useActions"
 
-import { API_URL } from '../../common/filepaths'
-import { push } from 'connected-react-router'
+// import { API_URL } from '../../common/filepaths'
+// import { push } from 'connected-react-router'
 
 interface IProps {
   getCurrentUser: () => object
@@ -99,7 +99,7 @@ class DashboardIndex extends Component<IProps> {
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getCurrentUser: () => dispatch(getCurrentUser()),
+  getCurrentUser: () => dispatch(getCurrentUser())
 })
 
 export default connect(null, mapDispatchToProps)(DashboardIndex)

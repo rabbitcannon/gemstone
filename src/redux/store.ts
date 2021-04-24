@@ -16,6 +16,6 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 )
 
-// export type RootStore = ReturnType<typeof rootReducer>
+export type RootStore = ReturnType<typeof rootReducer>
 
 export default store

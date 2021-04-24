@@ -3,7 +3,7 @@ import Axios from 'axios'
 import { CSRF_COOKIE_URL, LOGIN_URL } from '../../common/filepaths'
 import {
   getCurrentUser,
-  loginCurrentUser,
+  loginCurrentUser
 } from '../../redux/actions/user.actions'
 
 import loaderImage from '../../assets/images/preloaders/light/preloader_w24.svg'
@@ -32,7 +32,7 @@ class Index extends Component<IProps, State> {
     this.state = {
       isLoading: false,
       username: undefined,
-      password: undefined,
+      password: undefined
     }
 
     this.loginInputRef = React.createRef<HTMLInputElement | null>()
@@ -61,7 +61,7 @@ class Index extends Component<IProps, State> {
       .then(() => {
         Axios.post(LOGIN_URL, {
           username: username,
-          password: password,
+          password: password
         })
           .then((response: any) => {
             if (response.status === 204) {
@@ -177,7 +177,7 @@ class Index extends Component<IProps, State> {
 
 const mapDispatchToProps = (dispatch: any) => ({
   loginCurrentUser: () => dispatch(loginCurrentUser()),
-  getCurrentUser: () => dispatch(getCurrentUser()),
+  getCurrentUser: () => dispatch(getCurrentUser())
 })
 
 export default connect(null, mapDispatchToProps)(Index)

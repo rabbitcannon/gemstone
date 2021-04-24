@@ -6,7 +6,7 @@ class TestComponent extends Component {
     return (
       <div
         style={{
-          backgroundColor: 'white',
+          backgroundColor: 'white'
         }}
       >
         <h1>Import using Flatfile</h1>
@@ -15,8 +15,8 @@ class TestComponent extends Component {
             type: 'test import',
             fields: [
               { label: 'name', key: 'name' },
-              { label: 'Email', key: 'email' },
-            ],
+              { label: 'Email', key: 'email' }
+            ]
           }}
           licenseKey={'c07b2674-04da-4923-a59e-028dfee48a1f'}
           customer={{
@@ -24,7 +24,7 @@ class TestComponent extends Component {
             companyName: 'ABC Corp.',
             email: 'john@abc123.com',
             name: 'John Smith',
-            userId: '12345',
+            userId: '12345'
           }}
           onData={async (results) => {
             // do something with the results
@@ -33,24 +33,24 @@ class TestComponent extends Component {
           onRecordChange={(record) => {
             return {
               name: {
-                value: record.name + ' from change',
-              },
+                value: record.name + ' from change'
+              }
             }
           }}
           onRecordInit={(record) => {
             return {
               name: {
-                value: record.name + ' from init',
-              },
+                value: record.name + ' from init'
+              }
             }
           }}
           fieldHooks={{
             email: (values) => {
               return values.map(([item, index]) => [
                 { value: item + '.au' },
-                index,
+                index
               ])
-            },
+            }
           }}
           onCancel={() => {
             console.log('cancel')

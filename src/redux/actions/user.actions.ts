@@ -31,13 +31,13 @@ export const loginCurrentUser = () => {
     try {
       dispatch({
         type: UserTypes.LOGIN_USER,
-        payload: true,
+        payload: true
       })
       // window.location.href = "/dashboard"
     } catch (error) {
       dispatch({
         type: UserTypes.GET_USER_ERROR,
-        payload: error.message,
+        payload: error.message
       })
     }
   }
@@ -55,7 +55,7 @@ export const getCurrentUser = () => {
     try {
       dispatch({
         type: UserTypes.GET_USER,
-        payload: result.data,
+        payload: result.data
       })
 
       dispatch(push('/dashboard'))
@@ -63,7 +63,7 @@ export const getCurrentUser = () => {
       console.log('Error:', error)
       dispatch({
         type: UserTypes.GET_USER_ERROR,
-        payload: error.message,
+        payload: error.message
       })
       dispatch(push('/login'))
     }

@@ -2,7 +2,7 @@ import { User, UserTypes } from '../types/user.types'
 import {
   GetUserAction,
   GetUserErrorAction,
-  LogInUser,
+  LogInUser
 } from '../actions/user.actions'
 
 type UserActions = LogInUser | GetUserAction | GetUserErrorAction
@@ -18,7 +18,7 @@ const INITIAL_STATE: IDefaultUser = {
   isAuthenticated: false,
   loading: true,
   error: null,
-  profile: undefined,
+  profile: undefined
 }
 
 const userReducer = (
@@ -29,20 +29,20 @@ const userReducer = (
     case UserTypes.LOGIN_USER:
       return {
         ...state,
-        isAuthenticated: action.payload,
+        isAuthenticated: action.payload
       }
 
     case UserTypes.GET_USER:
       return {
         ...state,
         loading: false,
-        profile: action.payload,
+        profile: action.payload
       }
 
     case UserTypes.GET_USER_ERROR:
       return {
         ...state,
-        loading: false,
+        loading: false
       }
 
     default:
