@@ -3,7 +3,7 @@ import Axios from 'axios'
 import { push } from 'connected-react-router'
 
 import { UserTypes, User } from '../types/user.types'
-import { API_URL } from '../../common/filepaths'
+import { API_URL } from 'common/filepaths'
 
 /*
 Action Interfaces

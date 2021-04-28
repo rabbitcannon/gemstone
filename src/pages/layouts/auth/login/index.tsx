@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import { CSRF_COOKIE_URL, LOGIN_URL } from '../../common/filepaths'
+import { CSRF_COOKIE_URL, LOGIN_URL } from 'common/filepaths'
 import {
   getCurrentUser,
   loginCurrentUser
-} from '../../redux/actions/user.actions'
+} from 'redux/actions/user.actions'
 
-import loaderImage from '../../assets/images/preloaders/light/preloader_w24.svg'
+import loaderImage from 'assets/images/preloaders/light/preloader_w24.svg'
 import './index.scss'
 
-import TagLogo from '../../assets/images/logo/tag-logo.svg'
+import TagLogo from 'assets/images/logo/tag-logo.svg'
 import { connect } from 'react-redux'
 
 interface State {

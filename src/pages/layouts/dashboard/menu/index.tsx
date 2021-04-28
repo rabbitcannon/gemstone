@@ -1,11 +1,11 @@
 import React from 'react'
-import MenuProfile from './MenuProfile'
-import MenuItem from './MenuItem'
+import MenuProfile from './MenuProfile/MenuProfile'
+import MenuItem from './MenuItem/MenuItem'
 //
 // // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // // import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
 //
-import BedrockLogo from '../../../assets/images/logo/bedrock_w.svg'
+import BedrockLogo from 'assets/images/logo/bedrock_w.svg'
 
 const Menu = () => {
   return (
@@ -153,7 +153,7 @@ const Menu = () => {
               <nav className="mt-5 flex-1" aria-label="Sidebar">
                 <div className="px-2 space-y-1">
                   <MenuItem text="Dashboard" link="/dashboard" />
-                  <MenuItem text="Dashboard" link="/payroll" />
+                  <MenuItem text="Payroll" link="/payroll" />
                   {/* {MenuItems.map((item) => { */}
                   {/*  return <MenuItem key={item} text={item} /> */}
                   {/* })} */}

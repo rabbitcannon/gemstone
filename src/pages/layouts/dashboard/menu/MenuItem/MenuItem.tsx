@@ -7,26 +7,24 @@ import { useDispatch } from 'react-redux'
 interface IProps {
   text: string
   link: string
-  // onClickHandler: () => onClickHandler(props.link)
 }
 
 const MenuItem: React.FC<IProps> = ({ text, link }) => {
   const dispatch = useDispatch()
 
   function onClickHandler(link: string) {
-    console.log(link)
+    document.location.hash = link
     dispatch(push(link))
   }
 
   return (
-    <a
-      href="#"
+    <button
       onClick={() => onClickHandler(link)}
       className="text-gray-300 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
     >
       <FontAwesomeIcon icon={faTachometerAlt} size="lg" />{' '}
       <span className="ml-4">{text}</span>
-    </a>
+    </button>
   )
 }
 
