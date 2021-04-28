@@ -24,7 +24,7 @@ export interface GetUserErrorAction {
 }
 
 /*
-Login the current user
+login the current user
  */
 export const loginCurrentUser = () => {
   return async (dispatch: Dispatch) => {
@@ -33,7 +33,6 @@ export const loginCurrentUser = () => {
         type: UserTypes.LOGIN_USER,
         payload: true
       })
-      // window.location.href = "/dashboard"
     } catch (error) {
       dispatch({
         type: UserTypes.GET_USER_ERROR,
@@ -50,8 +49,6 @@ export const getCurrentUser = () => {
   return async (dispatch: Dispatch<GetUserAction | any>) => {
     const result = await Axios.get<User>(API_URL + 'user')
 
-    console.log(result)
-
     try {
       dispatch({
         type: UserTypes.GET_USER,
@@ -60,7 +57,6 @@ export const getCurrentUser = () => {
 
       dispatch(push('/dashboard'))
     } catch (error) {
-      console.log('Error:', error)
       dispatch({
         type: UserTypes.GET_USER_ERROR,
         payload: error.message

@@ -15,8 +15,17 @@ class TestComponent extends Component {
             type: 'test import',
             fields: [
               { label: 'name', key: 'name' },
-              { label: 'Email', key: 'email' }
-            ]
+              {
+                label: 'Email',
+                key: 'email',
+                validators: [
+                  {
+                    validate: 'unique'
+                  }
+                ]
+              }
+            ],
+            managed: true
           }}
           licenseKey={'c07b2674-04da-4923-a59e-028dfee48a1f'}
           customer={{
@@ -27,7 +36,6 @@ class TestComponent extends Component {
             userId: '12345'
           }}
           onData={async (results) => {
-            // do something with the results
             console.log(results)
           }}
           onRecordChange={(record) => {
@@ -58,7 +66,10 @@ class TestComponent extends Component {
           render={(importer, launch) => {
             return (
               <button
-                style={{ backgroundColor: 'blue', color: 'white' }}
+                style={{
+                  backgroundColor: 'blue',
+                  color: 'white'
+                }}
                 onClick={launch}
               >
                 Upload file

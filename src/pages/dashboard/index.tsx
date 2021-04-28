@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 // import Axios from 'axios'
 
-import Menu from '../layout/Menu'
-import DashboardHeader from './Header'
-import Stats from './Stats'
+import Menu from './menu'
+import DashboardHeader from './header/Header'
+import Stats from './stats'
 
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../../redux/actions/user.actions'
+import Contacts from './contacts'
 // import { useUserAction } from "../../redux/hooks/useActions"
 
 // import { API_URL } from '../../common/filepaths'
@@ -19,6 +20,7 @@ interface IProps {
 class DashboardIndex extends Component<IProps> {
   componentDidMount() {
     this.props.getCurrentUser()
+
     // const { getCurrentUser } = useUserAction()
     // getCurrentUser()
     // this.checkIfLoggedIn()
@@ -40,7 +42,7 @@ class DashboardIndex extends Component<IProps> {
 
   render() {
     return (
-      <div className="h-screen flex overflow-hidden">
+      <div className="h-screen flex overflow-hidden animate__animated animate__fadeIn">
         <Menu />
 
         <div className="flex flex-col min-w-0 flex-1 overflow-hidden bg-cool-gray-50">
@@ -81,6 +83,7 @@ class DashboardIndex extends Component<IProps> {
           </div>
 
           <DashboardHeader />
+          <Contacts />
           <Stats />
 
           <div className="flex-1 relative z-0 flex overflow-hidden">

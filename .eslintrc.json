@@ -36,6 +36,7 @@
         "asyncArrow": "always"
     }],
     "multiline-ternary": ["error", "never"],
+    "react/prop-types": "off",
     "spaced-comment": ["error", "always", {
       "block": {
         "markers": ["/", "*"]

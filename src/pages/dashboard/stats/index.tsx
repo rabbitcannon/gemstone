@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Stats extends Component {
+class Index extends Component {
   render() {
     return (
       <div className="bg-cool-gray-mid pb-10 px-8">
@@ -146,4 +146,4 @@ class Stats extends Component {
   }
 }
 
-export default Stats
+export default Index

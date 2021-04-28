@@ -34,7 +34,6 @@ class Index extends Component<IProps, State> {
       username: undefined,
       password: undefined
     }
-
     this.loginInputRef = React.createRef<HTMLInputElement | null>()
   }
 
@@ -43,7 +42,10 @@ class Index extends Component<IProps, State> {
   }
 
   handleInputChanges = (event: any) => {
-    this.setState({ ...this.state, [event.target.name]: event.target.value })
+    this.setState({
+      ...this.state,
+      [event.target.name]: event.target.value
+    })
   }
 
   modifyLoadingState = () => {
