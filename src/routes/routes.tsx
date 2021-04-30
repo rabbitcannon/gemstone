@@ -18,7 +18,11 @@ export const Routes = () => (
         <Route exact path={RoutePaths.account.login} component={Login} />
 
         <DashboardLayout>
-          <Route exact path={['/', RoutePaths.dashboard.root]} component={Dashboard} />
+          <Route
+            exact
+            path={['/', RoutePaths.dashboard.root]}
+            component={Dashboard}
+          />
           <Route exact path={RoutePaths.payroll.root} component={Payroll} />
           <Route path={RoutePaths.test.testRoute} component={TestComponent} />
         </DashboardLayout>

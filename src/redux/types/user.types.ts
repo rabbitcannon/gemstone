@@ -8,10 +8,7 @@ export enum UserTypes {
 export type User = {
   isAuthenticated: boolean
   user: {
-    profile: {
-      first_name: string
-      last_name: string
-    }
+    profile: { first_name: string; last_name: string }
   }
 }
 

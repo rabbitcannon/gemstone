@@ -1,1 +1,5 @@
-//button
+button {
+  &.menu-item {
+    outline: none;
+  }
+}

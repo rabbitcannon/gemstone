@@ -153,10 +153,7 @@ const Menu = () => {
               <nav className="mt-5 flex-1" aria-label="Sidebar">
                 <div className="px-2 space-y-1">
                   <MenuItem text="Dashboard" link="/dashboard" />
-                  <MenuItem text="Payroll" link="/payroll" />
-                  {/* {MenuItems.map((item) => { */}
-                  {/*  return <MenuItem key={item} text={item} /> */}
-                  {/* })} */}
+                  <MenuItem text="Payroll" link="/payroll" icon="faUploadAlt" />
                 </div>
               </nav>
             </div>
