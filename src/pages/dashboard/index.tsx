@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Index: React.FC = () => {
+const DashboardIndex: React.FC = () => {
   return <div>Root Dashboard</div>
 }
 
-export default Index
+export default DashboardIndex

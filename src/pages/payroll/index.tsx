@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Index: React.FC = () => {
+const PayrollIndex: React.FC = () => {
   return <div>Payroll!</div>
 }
 
-export default Index
+export default PayrollIndex

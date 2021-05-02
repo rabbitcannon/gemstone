@@ -1,10 +1,7 @@
 import React from 'react'
-import MenuProfile from './MenuProfile/MenuProfile'
-import MenuItem from './MenuItem/MenuItem'
-//
-// // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// // import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
-//
+import MenuProfile from './menu-profile'
+import MenuItem from './menu-item'
+
 import BedrockLogo from 'assets/images/logo/bedrock_w.svg'
 
 const Menu = () => {
@@ -152,8 +149,33 @@ const Menu = () => {
               </div>
               <nav className="mt-5 flex-1" aria-label="Sidebar">
                 <div className="px-2 space-y-1">
-                  <MenuItem text="Dashboard" link="/dashboard" />
-                  <MenuItem text="Payroll" link="/payroll" icon="faUploadAlt" />
+                  <MenuItem
+                    text="Dashboard"
+                    link="/dashboard"
+                    icon="tachometer-alt"
+                  />
+                  <MenuItem
+                    text="Payroll"
+                    link="/payroll"
+                    icon="cloud-upload-alt"
+                  />
+                  <MenuItem
+                    text="Plan Information"
+                    link="/plan-information"
+                    icon="cube"
+                  />
+                  <MenuItem
+                    text="Plan Health"
+                    link="/plan-health"
+                    icon="check-circle"
+                  />
+                  <MenuItem
+                    text="Documents"
+                    link="/documents"
+                    icon="folder-open"
+                  />
+                  <MenuItem text="Reports" link="/reports" icon="chart-bar" />
+                  <MenuItem text="Support" link="/support" icon="life-ring" />
                 </div>
               </nav>
             </div>

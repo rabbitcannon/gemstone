@@ -11,7 +11,7 @@ interface StateFromProps {
     | undefined
 }
 
-class MenuProfile extends Component<StateFromProps, {}> {
+class Index extends Component<StateFromProps, {}> {
   render() {
     const { profile } = this.props
 
@@ -47,4 +47,4 @@ const mapStateToProps = (state: User) => {
   }
 }
 
-export default connect(mapStateToProps)(MenuProfile)
+export default connect(mapStateToProps)(Index)

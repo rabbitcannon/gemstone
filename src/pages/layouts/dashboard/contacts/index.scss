@@ -1,0 +1,10 @@
+.contact {
+  &__container {
+    &--collapse {
+      left: 47%;
+      top: 247px;
+      position: absolute;
+      z-index: 5;
+    }
+  }
+}

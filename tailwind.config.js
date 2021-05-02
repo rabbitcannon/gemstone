@@ -14,7 +14,7 @@ module.exports = {
         },
         "tag-orange": "#F97318",
         "orange-light": "#FFECD5",
-        navy: "#121927",
+        "navy": "#121927",
       },
     },
   },
