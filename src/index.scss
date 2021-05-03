@@ -34,3 +34,11 @@ body.fade-out {
   opacity: 0;
   transition: none;
 }
+
+button {
+  &.btn {
+    border-radius: 5px;
+    color: #fff;
+    padding: 0.35em 1.12em;
+  }
+}

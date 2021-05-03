@@ -91,9 +91,7 @@ class DashboardIndex extends Component<IProps> {
             <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
               {/* Start main area*/}
               <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
-                <div className="h-full border-2 border-gray-200 border-dashed rounded-lg">
-                  {this.props.children}
-                </div>
+                <div className="h-full">{this.props.children}</div>
               </div>
               {/* End main area */}
             </main>
