@@ -15,6 +15,7 @@ import PlanHealthIndex from 'pages/plan-health'
 import DocumentsIndex from 'pages/documents'
 import ReportsIndex from 'pages/reports'
 import SupportIndex from 'pages/support'
+import ProfileIndex from '../pages/profile'
 
 export const Routes = () => (
   <Provider store={store}>
@@ -57,6 +58,11 @@ export const Routes = () => (
             exact
             path={RoutePaths.support.root}
             component={SupportIndex}
+          />
+          <Route
+            exact
+            path={RoutePaths.profile.root}
+            component={ProfileIndex}
           />
           <Route path={RoutePaths.test.testRoute} component={TestComponent} />
         </DashboardLayout>

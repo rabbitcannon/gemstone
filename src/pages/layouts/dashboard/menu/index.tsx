@@ -162,12 +162,12 @@ const Menu = () => {
                   <MenuItem
                     text="Plan Information"
                     link="/plan-information"
-                    icon="cube"
+                    icon="info-circle"
                   />
                   <MenuItem
                     text="Plan Health"
                     link="/plan-health"
-                    icon="check-circle"
+                    icon="notes-medical"
                   />
                   <MenuItem
                     text="Documents"

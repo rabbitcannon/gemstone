@@ -15,6 +15,7 @@ module.exports = {
           mid: "#E4E7EB",
         },
         "tag-orange": "#F97318",
+        "tag-orange-light": "#EC975E",
         "orange-light": "#FFECD5",
         "navy": "#121927",
       },

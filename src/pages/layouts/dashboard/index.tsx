@@ -13,21 +13,61 @@ import Contacts from './contacts'
 // import { API_URL } from '../../common/filepaths'
 // import { push } from 'connected-react-router'
 
+interface IState {
+  readonly currentLocation: string | undefined
+}
+
 interface IProps {
   getCurrentUser: () => object
   children: any
 }
 
-class DashboardIndex extends Component<IProps> {
+class DashboardIndex extends Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props)
+
+    this.state = {
+      currentLocation: undefined
+    }
+  }
+
   componentDidMount() {
     this.props.getCurrentUser()
-
+    this.getCurrentLocation()
     // const { getCurrentUser } = useUserAction()
     // getCurrentUser()
     // this.checkIfLoggedIn()
   }
 
-  componentDidUpdate() {}
+  getCurrentLocation = () => {
+    const currentURL = window.location.pathname.split('/')[1]
+    const sanitizeURL = currentURL
+      .replace('-', ' ')
+      .replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()))
+
+    if (this.state.currentLocation !== sanitizeURL) {
+      this.setState({
+        currentLocation: sanitizeURL
+      })
+    }
+  }
+
+  componentDidUpdate() {
+    this.getCurrentLocation()
+  }
+
+  renderStatsAndContactsPanel = () => {
+    const { currentLocation } = this.state
+
+    if (currentLocation === 'Dashboard' || currentLocation === '') {
+      return (
+        <>
+          <Contacts />
+          <Stats />
+        </>
+      )
+    }
+  }
 
   // checkIfLoggedIn = () => (dispatch: any) => {
   //     Axios.get(API_URL + "user").then((response) => {
@@ -42,6 +82,8 @@ class DashboardIndex extends Component<IProps> {
   // }
 
   render() {
+    const { currentLocation } = this.state
+
     return (
       <div className="h-screen flex overflow-hidden animate__animated animate__fadeIn">
         <Menu />
@@ -83,15 +125,19 @@ class DashboardIndex extends Component<IProps> {
             </div>
           </div>
 
-          <DashboardHeader />
-          <Contacts />
-          <Stats />
+          <DashboardHeader location={currentLocation} />
+
+          {this.renderStatsAndContactsPanel()}
 
           <div className="flex-1 relative z-0 flex overflow-hidden">
             <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
               {/* Start main area*/}
-              <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
-                <div className="h-full">{this.props.children}</div>
+              <div className="inset-0 py-6 px-3 sm:px-6 lg:px-8">
+                <div className="h-full">
+                  {/* <div className="py-1.5 px-3 sm:px-6 lg:px-8"> */}
+                  {this.props.children}
+                  {/* </div> */}
+                </div>
               </div>
               {/* End main area */}
             </main>

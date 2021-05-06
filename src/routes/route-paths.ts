@@ -25,6 +25,9 @@ export const RoutePaths = {
   support: {
     root: '/support'
   },
+  profile: {
+    root: '/profile'
+  },
 
   // testing route
   test: {
