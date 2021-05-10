@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect, useDispatch } from 'react-redux'
+// import { useSelector } from 'redux/hooks/typedSelector'
 import { User } from 'redux/types/user.types'
 import { push } from 'connected-react-router'
 

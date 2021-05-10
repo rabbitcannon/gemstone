@@ -8,9 +8,11 @@ import Stats from './stats'
 import { connect } from 'react-redux'
 import { getCurrentUser } from 'redux/actions/user.actions'
 import Contacts from './contacts'
-// import { useUserAction } from "../../redux/hooks/useActions"
+import Loading from '../shared/loading/loading'
+// import { User } from '../../../redux/types/user.types'
+// import { useUserAction } from 'redux/hooks/useActions'
 
-// import { API_URL } from '../../common/filepaths'
+// import { API_URL } from 'common/filepaths'
 // import { push } from 'connected-react-router'
 
 interface IState {
@@ -20,6 +22,7 @@ interface IState {
 interface IProps {
   getCurrentUser: () => object
   children: any
+  loading: boolean | null
 }
 
 class DashboardIndex extends Component<IProps, IState> {
@@ -35,8 +38,7 @@ class DashboardIndex extends Component<IProps, IState> {
     this.props.getCurrentUser()
     this.getCurrentLocation()
     // const { getCurrentUser } = useUserAction()
-    // getCurrentUser()
-    // this.checkIfLoggedIn()
+    getCurrentUser()
   }
 
   getCurrentLocation = () => {
@@ -54,6 +56,7 @@ class DashboardIndex extends Component<IProps, IState> {
 
   componentDidUpdate() {
     this.getCurrentLocation()
+    console.log(this.props?.loading)
   }
 
   renderStatsAndContactsPanel = () => {
@@ -69,25 +72,15 @@ class DashboardIndex extends Component<IProps, IState> {
     }
   }
 
-  // checkIfLoggedIn = () => (dispatch: any) => {
-  //     Axios.get(API_URL + "user").then((response) => {
-  //         console.log(response)
-  //     }).catch(error => {
-  //         console.log(error)
-  //         if(error.response.status === 401) {
-  //             console.log("test")
-  //             dispatch(push("/login"))
-  //         }
-  //     })
-  // }
-
   render() {
     const { currentLocation } = this.state
+    const { loading } = this.props
 
     return (
       <div className="h-screen flex overflow-hidden animate__animated animate__fadeIn">
-        <Menu />
+        {loading && <Loading />}
 
+        <Menu />
         <div className="flex flex-col min-w-0 flex-1 overflow-hidden bg-cool-gray-50">
           <div className="lg:hidden">
             <div className="flex items-center justify-between bg-gray-50 border-b border-gray-200 px-4 py-1.5">
@@ -152,4 +145,11 @@ const mapDispatchToProps = (dispatch: any) => ({
   getCurrentUser: () => dispatch(getCurrentUser())
 })
 
-export default connect(null, mapDispatchToProps)(DashboardIndex)
+const mapStateToProps = (state: any) => {
+  console.log(state.user.loading)
+  return {
+    loading: state.user.loading
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardIndex)

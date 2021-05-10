@@ -4,10 +4,12 @@ import { connectRouter } from 'connected-react-router'
 
 import userReducer from './user.reducer'
 
-const rootReducer = (history: History) =>
+const allReducers = (history: History) =>
   combineReducers({
     router: connectRouter(history),
     user: userReducer
   })
 
-export default rootReducer
+export default allReducers
+
+export type RootState = ReturnType<typeof allReducers>

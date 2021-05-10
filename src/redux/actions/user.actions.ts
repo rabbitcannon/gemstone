@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 import Axios from 'axios'
-import { push } from 'connected-react-router'
+// import { push } from 'connected-react-router'
 
 import { UserTypes, User } from '../types/user.types'
 import { API_URL } from 'common/filepaths'
@@ -47,21 +47,19 @@ Get Current User Information
  */
 export const getCurrentUser = () => {
   return async (dispatch: Dispatch<GetUserAction | any>) => {
-    const result = await Axios.get<User>(API_URL + 'user')
-
-    try {
-      dispatch({
-        type: UserTypes.GET_USER,
-        payload: result.data
+    await Axios.get<User>(API_URL + 'user')
+      .then((response) => {
+        dispatch({
+          type: UserTypes.GET_USER,
+          payload: response.data
+        })
       })
-
-      dispatch(push('/dashboard'))
-    } catch (error) {
-      dispatch({
-        type: UserTypes.GET_USER_ERROR,
-        payload: error.message
+      .catch((error) => {
+        dispatch({
+          type: UserTypes.GET_USER_ERROR, payload: error.message
+        })
+        // TODO remove comment at the end to redirect unauthenticated
+        // dispatch(push('/login'))
       })
-      dispatch(push('/login'))
-    }
   }
 }
