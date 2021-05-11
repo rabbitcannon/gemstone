@@ -56,7 +56,8 @@ export const getCurrentUser = () => {
       })
       .catch((error) => {
         dispatch({
-          type: UserTypes.GET_USER_ERROR, payload: error.message
+          type: UserTypes.GET_USER_ERROR,
+          payload: error.message
         })
         // TODO remove comment at the end to redirect unauthenticated
         // dispatch(push('/login'))
