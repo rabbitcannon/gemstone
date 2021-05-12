@@ -11,6 +11,7 @@ export type User = {
     profile: { first_name: string; last_name: string }
   }
 }
+/* eslint-enable no-unused-vars */
 
 export declare type isAuthenticated = {
   type: boolean

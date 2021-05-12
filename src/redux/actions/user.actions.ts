@@ -1,9 +1,9 @@
 import { Dispatch } from 'redux'
 import Axios from 'axios'
-// import { push } from 'connected-react-router'
+import { push } from 'connected-react-router'
 
-import { UserTypes, User } from '../types/user.types'
-import { API_URL } from 'common/filepaths'
+import { UserTypes, User } from 'redux/types/user.types'
+import { urlPaths } from 'common/url-paths'
 
 /*
 Action Interfaces
@@ -47,12 +47,13 @@ Get Current User Information
  */
 export const getCurrentUser = () => {
   return async (dispatch: Dispatch<GetUserAction | any>) => {
-    await Axios.get<User>(API_URL + 'user')
+    await Axios.get<User>(urlPaths.USER_URL)
       .then((response) => {
         dispatch({
           type: UserTypes.GET_USER,
           payload: response.data
         })
+        dispatch(push('/'))
       })
       .catch((error) => {
         dispatch({
@@ -60,7 +61,7 @@ export const getCurrentUser = () => {
           payload: error.message
         })
         // TODO remove comment at the end to redirect unauthenticated
-        // dispatch(push('/login'))
+        dispatch(push('/login'))
       })
   }
 }

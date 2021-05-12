@@ -37,6 +37,7 @@
     }],
     "multiline-ternary": ["error", "never"],
     "react/prop-types": "off",
+    "space-after-keywords": ["error", "never"],
     "spaced-comment": ["error", "always", {
       "block": {
         "markers": ["/", "*"]

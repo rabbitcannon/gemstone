@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import Axios from 'axios'
 
 import Menu from './menu'
 import DashboardHeader from './header/Header'
@@ -9,10 +8,11 @@ import { connect } from 'react-redux'
 import { getCurrentUser } from 'redux/actions/user.actions'
 import Contacts from './contacts'
 import Loading from '../shared/loading/loading'
+import { getUserCompany } from 'redux/actions/company.actions'
 // import { User } from '../../../redux/types/user.types'
 // import { useUserAction } from 'redux/hooks/useActions'
 
-// import { API_URL } from 'common/filepaths'
+// import { urlPaths } from 'common/url-paths'
 // import { push } from 'connected-react-router'
 
 interface IState {
@@ -21,6 +21,7 @@ interface IState {
 
 interface IProps {
   getCurrentUser: () => object
+  getUserCompany: () => object
   children: any
   loading: boolean | null
 }
@@ -39,10 +40,12 @@ class DashboardIndex extends Component<IProps, IState> {
     this.getCurrentLocation()
     // const { getCurrentUser } = useUserAction()
     getCurrentUser()
+    // getUserCompany()
   }
 
   getCurrentLocation = () => {
-    const currentURL = window.location.pathname.split('/')[1]
+    let currentURL = window.location.pathname.split('/')[1]
+    if (currentURL === '') currentURL = 'Dashboard'
     const sanitizeURL = currentURL
       .replace('-', ' ')
       .replace(/\w\S*/g, (w) => w.replace(/^\w/, (c) => c.toUpperCase()))
@@ -56,7 +59,6 @@ class DashboardIndex extends Component<IProps, IState> {
 
   componentDidUpdate() {
     this.getCurrentLocation()
-    console.log(this.props?.loading)
   }
 
   renderStatsAndContactsPanel = () => {
@@ -141,12 +143,14 @@ class DashboardIndex extends Component<IProps, IState> {
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-  getCurrentUser: () => dispatch(getCurrentUser())
-})
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getCurrentUser: () => dispatch(getCurrentUser()),
+    getUserCompany: () => dispatch(getUserCompany())
+  }
+}
 
 const mapStateToProps = (state: any) => {
-  console.log(state.user.loading)
   return {
     loading: state.user.loading
   }

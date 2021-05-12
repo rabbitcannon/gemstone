@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import { CSRF_COOKIE_URL, LOGIN_URL } from 'common/filepaths'
+import { loginPaths } from 'common/url-paths'
 import { getCurrentUser, loginCurrentUser } from 'redux/actions/user.actions'
 
 import loaderImage from 'assets/images/preloaders/light/preloader_w24.svg'
@@ -56,9 +56,9 @@ class Index extends Component<IProps, State> {
 
     const { username, password } = this.state
 
-    Axios.get(CSRF_COOKIE_URL)
+    Axios.get(loginPaths.CSRF_COOKIE_URL)
       .then(() => {
-        Axios.post(LOGIN_URL, {
+        Axios.post(loginPaths.LOGIN_URL, {
           username: username,
           password: password
         })
