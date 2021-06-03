@@ -20,6 +20,8 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 )
 
-export type RootStore = ReturnType<typeof rootReducer>
+// export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof store.getState>
+export type ApplicationDispatch = typeof store.dispatch
 
 export default store

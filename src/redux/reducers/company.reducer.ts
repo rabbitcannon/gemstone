@@ -6,29 +6,28 @@ import {
 
 type CompanyActions = GetCompanyAction | GetCompanyErrorAction
 
-interface IDefaultCompany {
+interface CompanyState {
   loading: boolean
   error: string | null
   company?: Company
 }
 
-const INITIAL_STATE: IDefaultCompany = {
+const INITIAL_STATE: CompanyState = {
   loading: true,
   error: null,
   company: undefined
 }
 
 const companyReducer = (
-  state: IDefaultCompany = INITIAL_STATE,
+  state: CompanyState = INITIAL_STATE,
   action: CompanyActions
 ) => {
-  console.log(state)
   switch (action.type) {
     case CompanyTypes.GET_USER_COMPANY:
       return {
         ...state,
         loading: false,
-        profile: action.payload
+        company: action.payload
       }
 
     case CompanyTypes.GET_USER_COMPANY_ERROR:

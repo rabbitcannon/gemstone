@@ -19,15 +19,8 @@ interface IState {
   readonly currentLocation: string | undefined
 }
 
-interface IProps {
-  getCurrentUser: () => object
-  getUserCompany: () => object
-  children: any
-  loading: boolean | null
-}
-
-class DashboardIndex extends Component<IProps, IState> {
-  constructor(props: IProps) {
+class DashboardIndex extends Component<Props, IState> {
+  constructor(props: Props) {
     super(props)
 
     this.state = {
@@ -36,11 +29,11 @@ class DashboardIndex extends Component<IProps, IState> {
   }
 
   componentDidMount() {
+    console.log(this.props.isAuthenticated)
     this.props.getCurrentUser()
+    this.props.getUserCompany()
     this.getCurrentLocation()
     // const { getCurrentUser } = useUserAction()
-    getCurrentUser()
-    // getUserCompany()
   }
 
   getCurrentLocation = () => {
@@ -143,15 +136,23 @@ class DashboardIndex extends Component<IProps, IState> {
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    getCurrentUser: () => dispatch(getCurrentUser()),
-    getUserCompany: () => dispatch(getUserCompany())
+type Props = ReturnType<typeof mapStateToProps> &
+  ReturnType<typeof mapDispatchToProps> & {
+    getCurrentUser: () => object
+    getUserCompany: () => object
+    children: any
+    loading: boolean | null
+    isAuthenticated: boolean | null
   }
-}
+
+const mapDispatchToProps = (dispatch: any) => ({
+  getCurrentUser: () => dispatch(getCurrentUser()),
+  getUserCompany: () => dispatch(getUserCompany())
+})
 
 const mapStateToProps = (state: any) => {
   return {
+    isAuthenticated: state.user.isAuthenticated,
     loading: state.user.loading
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "quartz",
+  "name": "bedrock",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -58,11 +58,11 @@
     "prettier": "^2.2.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "typescript-eslint": "^0.0.1-alpha.0"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "HOST=quartz.portal.test PORT=3000 craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",

@@ -7,14 +7,14 @@ import {
 
 type UserActions = LogInUser | GetUserAction | GetUserErrorAction
 
-interface IDefaultUser {
+interface UserState {
   isAuthenticated: boolean
   loading: boolean
   error: string | null
   profile?: User
 }
 
-const INITIAL_STATE: IDefaultUser = {
+const INITIAL_STATE: UserState = {
   isAuthenticated: false,
   loading: true,
   error: null,
@@ -22,9 +22,9 @@ const INITIAL_STATE: IDefaultUser = {
 }
 
 const userReducer = (
-  state: IDefaultUser = INITIAL_STATE,
+  state: UserState = INITIAL_STATE,
   action: UserActions
-): IDefaultUser => {
+): UserState => {
   switch (action.type) {
     case UserTypes.LOGIN_USER:
       return {
@@ -36,13 +36,15 @@ const userReducer = (
       return {
         ...state,
         loading: false,
-        profile: action.payload
+        profile: action.payload,
+        isAuthenticated: true
       }
 
     case UserTypes.GET_USER_ERROR:
       return {
         ...state,
-        loading: false
+        loading: false,
+        isAuthenticated: false
       }
 
     default:

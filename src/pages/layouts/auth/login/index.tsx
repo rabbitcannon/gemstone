@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import { loginPaths } from 'common/url-paths'
+import { authPaths } from 'common/url-paths'
 import { getCurrentUser, loginCurrentUser } from 'redux/actions/user.actions'
 
 import loaderImage from 'assets/images/preloaders/light/preloader_w24.svg'
@@ -15,12 +15,7 @@ interface State {
   password: string | undefined
 }
 
-interface IProps {
-  loginCurrentUser: () => boolean
-  getCurrentUser: () => any
-}
-
-class Index extends Component<IProps, State> {
+class Index extends Component<Props, State> {
   readonly loginInputRef: any
 
   constructor(props: any) {
@@ -56,9 +51,9 @@ class Index extends Component<IProps, State> {
 
     const { username, password } = this.state
 
-    Axios.get(loginPaths.CSRF_COOKIE_URL)
+    Axios.get(authPaths.CSRF_COOKIE_URL)
       .then(() => {
-        Axios.post(loginPaths.LOGIN_URL, {
+        Axios.post(authPaths.LOGIN_URL, {
           username: username,
           password: password
         })
@@ -174,11 +169,14 @@ class Index extends Component<IProps, State> {
   }
 }
 
+type Props = ReturnType<typeof mapDispatchToProps> & {
+  loginCurrentUser: boolean
+  getCurrentUser: any
+}
+
 const mapDispatchToProps = (dispatch: any) => ({
   loginCurrentUser: () => dispatch(loginCurrentUser()),
   getCurrentUser: () => dispatch(getCurrentUser())
 })
 
 export default connect(null, mapDispatchToProps)(Index)
-
-// export default Index;

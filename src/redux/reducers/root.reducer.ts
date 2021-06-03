@@ -5,13 +5,16 @@ import { connectRouter } from 'connected-react-router'
 import companyReducer from './company.reducer'
 import userReducer from './user.reducer'
 
+// interface ApplicationState {
+//   company: CompanyState
+//   user: UserState
+// }
+
 const allReducers = (history: History) =>
   combineReducers({
-    company: companyReducer,
     router: connectRouter(history),
+    company: companyReducer,
     user: userReducer
   })
 
 export default allReducers
-
-export type RootState = ReturnType<typeof allReducers>

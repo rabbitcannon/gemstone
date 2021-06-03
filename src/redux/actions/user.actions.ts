@@ -3,13 +3,18 @@ import Axios from 'axios'
 import { push } from 'connected-react-router'
 
 import { UserTypes, User } from 'redux/types/user.types'
-import { urlPaths } from 'common/url-paths'
+import { authPaths, urlPaths } from 'common/url-paths'
 
 /*
 Action Interfaces
  */
 export interface LogInUser {
   type: UserTypes.LOGIN_USER
+  payload: boolean
+}
+
+export interface LogoutUser {
+  type: UserTypes.LOGOUT_USER
   payload: boolean
 }
 
@@ -28,6 +33,7 @@ login the current user
  */
 export const loginCurrentUser = () => {
   return async (dispatch: Dispatch) => {
+    console.log('Test')
     try {
       dispatch({
         type: UserTypes.LOGIN_USER,
@@ -39,6 +45,23 @@ export const loginCurrentUser = () => {
         payload: error.message
       })
     }
+  }
+}
+
+export const logoutCurrentUser = () => {
+  return async (dispatch: Dispatch<LogoutUser>) => {
+    await Axios.get(authPaths.LOGOUT_URL).then((response) => {
+      dispatch({
+        type: UserTypes.LOGOUT_USER,
+        payload: response.data
+      })
+    })
+    // .catch((error) => {
+    //   dispatch({
+    //     type: UserTypes.GET_USER_ERROR,
+    //     payload: error.message
+    //   })
+    // })
   }
 }
 
@@ -60,7 +83,6 @@ export const getCurrentUser = () => {
           type: UserTypes.GET_USER_ERROR,
           payload: error.message
         })
-        // TODO remove comment at the end to redirect unauthenticated
         dispatch(push('/login'))
       })
   }

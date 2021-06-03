@@ -1,10 +1,55 @@
 import React from 'react'
 import { connect, useDispatch } from 'react-redux'
-// import { useSelector } from 'redux/hooks/typedSelector'
 import { User } from 'redux/types/user.types'
 import { push } from 'connected-react-router'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { logoutCurrentUser } from 'redux/actions/user.actions'
 
-interface IProfile {
+const MenuProfileIndex: React.FC<IProfile> = ({ profile }) => {
+  const dispatch = useDispatch()
+
+  return (
+    <div className="flex-shrink-0 flex p-4">
+      <div className="flex items-center">
+        <img
+          className="inline-block h-9 w-9 rounded-full"
+          src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+          alt=""
+        />
+        <div className="flex flex-row align-middle gap-x-4 ml-3">
+          <div className="flex-initial">
+            <a
+              href="#"
+              onClick={() => dispatch(push('/profile'))}
+              className="flex-shrink-0 w-full group block"
+            >
+              <p className="text-sm font-medium text-gray-300 group-hover:text-gray-600">
+                {profile?.first_name} {profile?.last_name}
+              </p>
+
+              <p className="text-xs font-medium">View profile</p>
+            </a>
+          </div>
+          <div className="inline-block align-middle">
+            <a href="#" onClick={() => logoutCurrentUser()}>
+              <FontAwesomeIcon size="lg" icon={['fas', 'sign-out-alt']} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// type ILogout = ReturnType<typeof mapDispatchToProps> & {
+//   logoutCurrentUser: boolean
+// }
+
+const mapDispatchToProps = (dispatch: any) => ({
+  logoutCurrentUser: () => dispatch(logoutCurrentUser())
+})
+
+type IProfile = ReturnType<typeof mapStateToProps> & {
   readonly profile?:
     | {
         first_name: string
@@ -13,40 +58,12 @@ interface IProfile {
     | undefined
 }
 
-const MenuProfileIndex: React.FC<IProfile> = ({ profile }) => {
-  const dispatch = useDispatch()
-
-  return (
-    <div className="flex-shrink-0 flex p-4">
-      <a
-        href="#"
-        onClick={() => dispatch(push('/profile'))}
-        className="flex-shrink-0 w-full group block"
-      >
-        <div className="flex items-center">
-          <div>
-            <img
-              className="inline-block h-9 w-9 rounded-full"
-              src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
-              alt=""
-            />
-          </div>
-          <div className="ml-3">
-            <p className="text-sm font-medium text-gray-300 group-hover:text-gray-600">
-              {profile?.first_name} {profile?.last_name}
-            </p>
-            <p className="text-xs font-medium">View profile</p>
-          </div>
-        </div>
-      </a>
-    </div>
-  )
-}
-
 const mapStateToProps = (state: User) => {
   return {
     profile: state.user.profile
   }
 }
 
-export default connect(mapStateToProps, { push })(MenuProfileIndex)
+export default connect(mapStateToProps, { mapDispatchToProps, push })(
+  MenuProfileIndex
+)

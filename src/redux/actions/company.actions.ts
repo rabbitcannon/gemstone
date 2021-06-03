@@ -23,7 +23,6 @@ export const getUserCompany = () => {
   return async (dispatch: Dispatch<GetCompanyAction | any>) => {
     await Axios.get<Company>(companyPaths.USER_COMPANY)
       .then((response) => {
-        console.log('Response: ', response)
         dispatch({
           type: CompanyTypes.GET_USER_COMPANY,
           payload: response.data

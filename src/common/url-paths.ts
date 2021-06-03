@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
-export enum loginPaths {
-  CSRF_COOKIE_URL = 'http://localhost/api/sanctum/csrf-cookie',
-  LOGIN_URL = 'http://localhost/api/quartz/login'
+export enum authPaths {
+  CSRF_COOKIE_URL = 'http://portal.test/api/sanctum/csrf-cookie',
+  LOGIN_URL = 'http://portal.test/api/quartz/login',
+  LOGOUT_URL = 'http://portal.test/api/quartz/logout'
 }
 
 export enum urlPaths {
-  USER_URL = 'http://localhost/api/quartz/user',
-  API_URL = 'http://localhost/api/quartz/',
-  USER_COMPANY_URL = 'http://localhost/api/quartz/user/company'
+  USER_URL = 'http://portal.test/api/quartz/user',
+  API_URL = 'http://portal.test/api/quartz/'
 }
 
 export enum companyPaths {
-  USER_COMPANY = 'http://localhost/api/quartz/user/company'
+  USER_COMPANY = 'http://portal.test/api/quartz/user/company'
 }
 /* eslint-enable no-unused-vars */
