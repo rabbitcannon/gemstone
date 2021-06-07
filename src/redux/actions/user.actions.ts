@@ -3,7 +3,7 @@ import Axios from 'axios'
 import { push } from 'connected-react-router'
 
 import { UserTypes, User } from 'redux/types/user.types'
-import { authPaths, urlPaths } from 'common/url-paths'
+import { authPaths, userPaths } from 'common/url-paths'
 
 /*
 Action Interfaces
@@ -70,7 +70,7 @@ Get Current User Information
  */
 export const getCurrentUser = () => {
   return async (dispatch: Dispatch<GetUserAction | any>) => {
-    await Axios.get<User>(urlPaths.USER_URL)
+    await Axios.get<User>(userPaths.USER_URL)
       .then((response) => {
         dispatch({
           type: UserTypes.GET_USER,
