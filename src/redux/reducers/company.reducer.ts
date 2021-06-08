@@ -1,8 +1,5 @@
 import { Company, CompanyTypes } from '../types/company.types'
-import {
-  GetCompanyAction,
-  GetCompanyErrorAction
-} from '../actions/company.actions'
+import { GetCompanyAction, GetCompanyErrorAction } from '../actions/company.actions'
 
 type CompanyActions = GetCompanyAction | GetCompanyErrorAction
 
@@ -18,10 +15,7 @@ const INITIAL_STATE: CompanyState = {
   company: undefined
 }
 
-const companyReducer = (
-  state: CompanyState = INITIAL_STATE,
-  action: CompanyActions
-) => {
+const companyReducer = (state: CompanyState = INITIAL_STATE, action: CompanyActions) => {
   switch (action.type) {
     case CompanyTypes.GET_USER_COMPANY:
       return {

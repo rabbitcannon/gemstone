@@ -24,46 +24,14 @@ export const Routes = () => (
         <Route exact path={RoutePaths.account.login} component={Login} />
 
         <DashboardLayout>
-          <Route
-            exact
-            path={['/', RoutePaths.dashboard.root]}
-            component={Dashboard}
-          />
-          <Route
-            exact
-            path={RoutePaths.payroll.root}
-            component={PayrollIndex}
-          />
-          <Route
-            exact
-            path={RoutePaths.planInformation.root}
-            component={PlanInformationIndex}
-          />
-          <Route
-            exact
-            path={RoutePaths.planHealth.root}
-            component={PlanHealthIndex}
-          />
-          <Route
-            exact
-            path={RoutePaths.documents.root}
-            component={DocumentsIndex}
-          />
-          <Route
-            exact
-            path={RoutePaths.reports.root}
-            component={ReportsIndex}
-          />
-          <Route
-            exact
-            path={RoutePaths.support.root}
-            component={SupportIndex}
-          />
-          <Route
-            exact
-            path={RoutePaths.profile.root}
-            component={ProfileIndex}
-          />
+          <Route exact path={['/', RoutePaths.dashboard.root]} component={Dashboard} />
+          <Route exact path={RoutePaths.payroll.root} component={PayrollIndex} />
+          <Route exact path={RoutePaths.planInformation.root} component={PlanInformationIndex} />
+          <Route exact path={RoutePaths.planHealth.root} component={PlanHealthIndex} />
+          <Route exact path={RoutePaths.documents.root} component={DocumentsIndex} />
+          <Route exact path={RoutePaths.reports.root} component={ReportsIndex} />
+          <Route exact path={RoutePaths.support.root} component={SupportIndex} />
+          <Route exact path={RoutePaths.profile.root} component={ProfileIndex} />
           <Route path={RoutePaths.test.testRoute} component={TestComponent} />
         </DashboardLayout>
       </Switch>

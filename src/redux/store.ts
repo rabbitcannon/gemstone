@@ -15,10 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
   middleware.push(logger)
 }
 
-const store = createStore(
-  rootReducer(history),
-  composeWithDevTools(applyMiddleware(...middleware))
-)
+const store = createStore(rootReducer(history), composeWithDevTools(applyMiddleware(...middleware)))
 
 export type RootState = ReturnType<typeof store.getState>
 export type ApplicationDispatch = typeof store.dispatch

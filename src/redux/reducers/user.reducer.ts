@@ -1,9 +1,5 @@
 import { User, UserTypes } from '../types/user.types'
-import {
-  GetUserAction,
-  GetUserErrorAction,
-  LogInUser
-} from '../actions/user.actions'
+import { GetUserAction, GetUserErrorAction, LogInUser } from '../actions/user.actions'
 
 type UserActions = LogInUser | GetUserAction | GetUserErrorAction
 
@@ -21,10 +17,7 @@ const INITIAL_STATE: UserState = {
   profile: undefined
 }
 
-const userReducer = (
-  state: UserState = INITIAL_STATE,
-  action: UserActions
-): UserState => {
+const userReducer = (state: UserState = INITIAL_STATE, action: UserActions): UserState => {
   switch (action.type) {
     case UserTypes.LOGIN_USER:
       return {

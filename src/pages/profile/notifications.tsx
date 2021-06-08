@@ -16,9 +16,7 @@ const Notifications: React.FC = () => {
           <div className="panel__content">
             <div>
               <fieldset>
-                <legend className="text-base font-medium text-gray-900">
-                  By Email
-                </legend>
+                <legend className="text-base font-medium text-gray-900">By Email</legend>
                 <div className="mt-4 space-y-4">
                   <div className="relative flex items-start">
                     <div className="flex items-center h-5">
@@ -30,10 +28,7 @@ const Notifications: React.FC = () => {
                       />
                     </div>
                     <div className="ml-3 text-sm">
-                      <label
-                        htmlFor="comments"
-                        className="font-medium text-gray-700"
-                      >
+                      <label htmlFor="comments" className="font-medium text-gray-700">
                         Comments
                       </label>
                       <p className="text-gray-500">
@@ -51,10 +46,7 @@ const Notifications: React.FC = () => {
                       />
                     </div>
                     <div className="ml-3 text-sm">
-                      <label
-                        htmlFor="candidates"
-                        className="font-medium text-gray-700"
-                      >
+                      <label htmlFor="candidates" className="font-medium text-gray-700">
                         Candidates
                       </label>
                       <p className="text-gray-500">
@@ -72,15 +64,11 @@ const Notifications: React.FC = () => {
                       />
                     </div>
                     <div className="ml-3 text-sm">
-                      <label
-                        htmlFor="offers"
-                        className="font-medium text-gray-700"
-                      >
+                      <label htmlFor="offers" className="font-medium text-gray-700">
                         Offers
                       </label>
                       <p className="text-gray-500">
-                        Get notified when a candidate accepts or rejects an
-                        offer.
+                        Get notified when a candidate accepts or rejects an offer.
                       </p>
                     </div>
                   </div>

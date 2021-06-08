@@ -4,9 +4,7 @@ class Index extends Component {
   render() {
     return (
       <div className="bg-cool-gray-mid pb-10 px-8">
-        <h3 className="text-lg pl-4 py-4 font-medium text-gray-900">
-          You plan at a glance
-        </h3>
+        <h3 className="text-lg pl-4 py-4 font-medium text-gray-900">You plan at a glance</h3>
 
         <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <div className="relative bg-white pt-5 px-4 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden animate__animated animate__fadeInUp animate__faster">
@@ -28,9 +26,7 @@ class Index extends Component {
                   />
                 </svg>
               </div>
-              <p className="ml-16 text-sm font-medium text-gray-500 truncate">
-                Total Subscribers
-              </p>
+              <p className="ml-16 text-sm font-medium text-gray-500 truncate">Total Subscribers</p>
             </dt>
             <dd className="ml-16 pb-6 flex items-baseline sm:pb-7">
               <p className="text-2xl font-semibold text-gray-900">71,897</p>
@@ -72,9 +68,7 @@ class Index extends Component {
                   />
                 </svg>
               </div>
-              <p className="ml-16 text-sm font-medium text-gray-500 truncate">
-                Avg. Open Rate
-              </p>
+              <p className="ml-16 text-sm font-medium text-gray-500 truncate">Avg. Open Rate</p>
             </dt>
             <dd className="ml-16 pb-6 flex items-baseline sm:pb-7">
               <p className="text-2xl font-semibold text-gray-900">58.16%</p>
@@ -116,9 +110,7 @@ class Index extends Component {
                   />
                 </svg>
               </div>
-              <p className="ml-16 text-sm font-medium text-gray-500 truncate">
-                Avg. Click Rate
-              </p>
+              <p className="ml-16 text-sm font-medium text-gray-500 truncate">Avg. Click Rate</p>
             </dt>
             <dd className="ml-16 pb-6 flex items-baseline sm:pb-7">
               <p className="text-2xl font-semibold text-gray-900">24.57%</p>

@@ -31,11 +31,7 @@ const Index: React.FC<IProps> = ({ text, link, icon }) => {
   }
 
   return (
-    <div
-      className={`hover:bg-cool-gray-700 ${
-        active ? 'text-white bg-navy' : 'text-gray-300'
-      }`}
-    >
+    <div className={`hover:bg-cool-gray-700 ${active ? 'text-white bg-navy' : 'text-gray-300'}`}>
       <button
         onClick={() => onClickHandler(link)}
         className=" group flex items-center px-5 py-2 text-sm font-medium rounded-md menu-item"

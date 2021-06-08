@@ -27,9 +27,7 @@ const Contacts: React.FC = () => {
           className="bg-orange-100 pb-10 px-8"
           style={{ position: 'relative' }}
         >
-          <h3 className="text-lg pl-4 py-4 font-medium text-gray-900">
-            Your plan contacts
-          </h3>
+          <h3 className="text-lg pl-4 py-4 font-medium text-gray-900">Your plan contacts</h3>
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <ContactCard
               name="Robert Blahut"
@@ -58,9 +56,7 @@ const Contacts: React.FC = () => {
         </div>
       </Transition>
       <div className="contact__container--collapse">
-        <button
-          onClick={() => setToggleStatus((toggleStatus) => !toggleStatus)}
-        >
+        <button onClick={() => setToggleStatus((toggleStatus) => !toggleStatus)}>
           <FontAwesomeIcon icon={['fas', arrowIcon]} />
           &nbsp;Contacts&nbsp;
           <FontAwesomeIcon icon={['fas', arrowIcon]} />

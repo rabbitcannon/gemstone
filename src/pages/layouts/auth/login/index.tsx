@@ -81,11 +81,7 @@ class Index extends Component<Props, State> {
         <div id="overlay">&nbsp;</div>
         <div className="flex h-screen animate__animated animate__fadeIn">
           <div className="w-1/6 m-auto sm-auto lift py-8 px-4 sm:rounded-lg sm:px-10 bg-gray-100 text-center shadow animate__animated animate__fadeIn">
-            <img
-              src={TagLogo}
-              className="logo__tag--login"
-              alt="TAG Resources, LLC."
-            />
+            <img src={TagLogo} className="logo__tag--login" alt="TAG Resources, LLC." />
 
             <h3 className="p-4 title__header">Portal Login</h3>
 
@@ -129,10 +125,7 @@ class Index extends Component<Props, State> {
                     type="checkbox"
                     className="h-4 w-4 text-yellow-600 focus:ring-yellow-500 border-gray-300 rounded"
                   />
-                  <label
-                    htmlFor="remember_me"
-                    className="ml-2 block text-sm text-gray-900"
-                  >
+                  <label htmlFor="remember_me" className="ml-2 block text-sm text-gray-900">
                     Remember me
                   </label>
                 </div>
@@ -147,11 +140,7 @@ class Index extends Component<Props, State> {
                   {!isLoading ? (
                     <span>Sign in</span>
                   ) : (
-                    <img
-                      src={loaderImage}
-                      className="animate__animated animate__fadeIn"
-                      alt=""
-                    />
+                    <img src={loaderImage} className="animate__animated animate__fadeIn" alt="" />
                   )}
                 </button>
 

@@ -6,28 +6,21 @@ const PersonalInformation: React.FC = () => {
     <div className="grid grid-cols-3 pb-10">
       <div>
         <span className="text-xl">Personal information</span>
-        <p className="text-sm text-gray-500">
-          Use a permanent address where you can receive mail.
-        </p>
+        <p className="text-sm text-gray-500">Use a permanent address where you can receive mail.</p>
       </div>
 
       <div className="col-span-2 panel border">
         <form action="">
           <div className="panel__content">
             <div>
-              <h3 className="text-lg leading-6 font-medium text-gray-900">
-                Personal Information
-              </h3>
+              <h3 className="text-lg leading-6 font-medium text-gray-900">Personal Information</h3>
               <p className="mt-1 text-sm text-gray-500">
                 Use a permanent address where you can receive mail.
               </p>
             </div>
             <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
               <div className="sm:col-span-3">
-                <label
-                  htmlFor="first_name"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="first_name" className="block text-sm font-medium text-gray-700">
                   First name
                 </label>
                 <div className="mt-1">
@@ -42,10 +35,7 @@ const PersonalInformation: React.FC = () => {
               </div>
 
               <div className="sm:col-span-3">
-                <label
-                  htmlFor="last_name"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="last_name" className="block text-sm font-medium text-gray-700">
                   Last name
                 </label>
                 <div className="mt-1">
@@ -60,10 +50,7 @@ const PersonalInformation: React.FC = () => {
               </div>
 
               <div className="sm:col-span-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email address
                 </label>
                 <div className="mt-1">
@@ -78,10 +65,7 @@ const PersonalInformation: React.FC = () => {
               </div>
 
               <div className="sm:col-span-3">
-                <label
-                  htmlFor="country"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="country" className="block text-sm font-medium text-gray-700">
                   Country / Region
                 </label>
                 <div className="mt-1">
@@ -99,10 +83,7 @@ const PersonalInformation: React.FC = () => {
               </div>
 
               <div className="sm:col-span-6">
-                <label
-                  htmlFor="street_address"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="street_address" className="block text-sm font-medium text-gray-700">
                   Street address
                 </label>
                 <div className="mt-1">
@@ -117,10 +98,7 @@ const PersonalInformation: React.FC = () => {
               </div>
 
               <div className="sm:col-span-2">
-                <label
-                  htmlFor="city"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="city" className="block text-sm font-medium text-gray-700">
                   City
                 </label>
                 <div className="mt-1">
@@ -134,10 +112,7 @@ const PersonalInformation: React.FC = () => {
               </div>
 
               <div className="sm:col-span-2">
-                <label
-                  htmlFor="state"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="state" className="block text-sm font-medium text-gray-700">
                   State / Province
                 </label>
                 <div className="mt-1">
@@ -151,10 +126,7 @@ const PersonalInformation: React.FC = () => {
               </div>
 
               <div className="sm:col-span-2">
-                <label
-                  htmlFor="zip"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label htmlFor="zip" className="block text-sm font-medium text-gray-700">
                   ZIP / Postal
                 </label>
                 <div className="mt-1">

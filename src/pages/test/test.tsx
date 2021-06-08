@@ -54,10 +54,7 @@ class TestComponent extends Component {
           }}
           fieldHooks={{
             email: (values) => {
-              return values.map(([item, index]) => [
-                { value: item + '.au' },
-                index
-              ])
+              return values.map(([item, index]) => [{ value: item + '.au' }, index])
             }
           }}
           onCancel={() => {

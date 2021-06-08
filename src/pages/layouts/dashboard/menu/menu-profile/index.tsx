@@ -64,6 +64,4 @@ const mapStateToProps = (state: User) => {
   }
 }
 
-export default connect(mapStateToProps, { mapDispatchToProps, push })(
-  MenuProfileIndex
-)
+export default connect(mapStateToProps, { mapDispatchToProps, push })(MenuProfileIndex)

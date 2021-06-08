@@ -1,4 +1,4 @@
-const BASE_API_URL = process.env.REACT_APP_BEDROCK_API_URL
+const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
 const BASE_BEDROCK_URL = process.env.REACT_APP_BEDROCK_API_URL
 
 /* eslint-disable no-unused-vars */

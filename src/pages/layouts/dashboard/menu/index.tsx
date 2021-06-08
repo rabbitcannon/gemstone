@@ -8,11 +8,7 @@ const Menu = () => {
   return (
     <>
       {/* Off-canvas menu for mobile, show/hide based on off-canvas menu state. */}
-      <div
-        className="fixed inset-0 flex z-40 lg:hidden"
-        role="dialog"
-        aria-modal="true"
-      >
+      <div className="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
         {/*
                           Off-canvas menu overlay, show/hide based on off-canvas menu state.
 
@@ -23,10 +19,7 @@ const Menu = () => {
                             From: "opacity-100"
                             To: "opacity-0"
                         */}
-        <div
-          className="fixed inset-0 bg-gray-600 bg-opacity-75"
-          aria-hidden="true"
-        >
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true">
           &nbsp;
         </div>
 
@@ -149,31 +142,11 @@ const Menu = () => {
               </div>
               <nav className="mt-5 flex-1" aria-label="Sidebar">
                 <div className="px-2 space-y-1">
-                  <MenuItem
-                    text="Dashboard"
-                    link="/dashboard"
-                    icon="tachometer-alt"
-                  />
-                  <MenuItem
-                    text="Payroll"
-                    link="/payroll"
-                    icon="cloud-upload-alt"
-                  />
-                  <MenuItem
-                    text="Plan Information"
-                    link="/plan-information"
-                    icon="info-circle"
-                  />
-                  <MenuItem
-                    text="Plan Health"
-                    link="/plan-health"
-                    icon="notes-medical"
-                  />
-                  <MenuItem
-                    text="Documents"
-                    link="/documents"
-                    icon="folder-open"
-                  />
+                  <MenuItem text="Dashboard" link="/dashboard" icon="tachometer-alt" />
+                  <MenuItem text="Payroll" link="/payroll" icon="cloud-upload-alt" />
+                  <MenuItem text="Plan Information" link="/plan-information" icon="info-circle" />
+                  <MenuItem text="Plan Health" link="/plan-health" icon="notes-medical" />
+                  <MenuItem text="Documents" link="/documents" icon="folder-open" />
                   <MenuItem text="Reports" link="/reports" icon="chart-bar" />
                   <MenuItem text="Support" link="/support" icon="life-ring" />
                 </div>
