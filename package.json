@@ -62,7 +62,7 @@
     "typescript-eslint": "^0.0.1-alpha.0"
   },
   "scripts": {
-    "start": "HOST=quartz.portal.test PORT=3000 craco start",
+    "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
