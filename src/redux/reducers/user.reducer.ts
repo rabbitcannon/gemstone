@@ -5,6 +5,7 @@ type UserActions = LogInUser | GetUserAction | GetUserErrorAction
 
 interface UserState {
   isAuthenticated: boolean
+  token: string | null
   loading: boolean
   error: string | null
   profile?: User
@@ -12,6 +13,7 @@ interface UserState {
 
 const INITIAL_STATE: UserState = {
   isAuthenticated: false,
+  token: null,
   loading: true,
   error: null,
   profile: undefined
@@ -20,6 +22,7 @@ const INITIAL_STATE: UserState = {
 const userReducer = (state: UserState = INITIAL_STATE, action: UserActions): UserState => {
   switch (action.type) {
     case UserTypes.LOGIN_USER:
+      console.log(state)
       return {
         ...state,
         isAuthenticated: action.payload

@@ -69,9 +69,11 @@ export const logoutCurrentUser = () => {
 Get Current User Information
  */
 export const getCurrentUser = () => {
+  console.log('jere')
   return async (dispatch: Dispatch<GetUserAction | any>) => {
     await Axios.get<User>(userPaths.USER_URL)
       .then((response) => {
+        console.log(response)
         dispatch({
           type: UserTypes.GET_USER,
           payload: response.data

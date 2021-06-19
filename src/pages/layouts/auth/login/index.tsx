@@ -59,6 +59,7 @@ class Index extends Component<Props, State> {
         })
           .then((response: any) => {
             if (response.status === 204) {
+              console.log(response)
               // this.props.loginCurrentUser()
               this.props.getCurrentUser()
             }
