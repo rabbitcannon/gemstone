@@ -4108,6 +4108,7 @@ __metadata:
     prettier: ^2.2.1
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-hot-toast: ^2.0.0
     react-redux: ^7.2.3
     react-router-dom: ^5.2.0
     react-scripts: 4.0.3
@@ -7870,6 +7871,15 @@ fsevents@^1.2.7:
     lodash: ~4.17.10
     minimatch: ~3.0.2
   checksum: 2e79c8c0bb8405c92abe43d633b737a511b4791fbca21646adf0dae2ff27c2a95a702347808cd4292e7730668e95fa5de164811f40f86f1774b7a9ff8ed0d1ec
+  languageName: node
+  linkType: hard
+
+"goober@npm:^2.0.35":
+  version: 2.0.39
+  resolution: "goober@npm:2.0.39"
+  peerDependencies:
+    csstype: ^2.6.2
+  checksum: 555bbccfc507f5a9befba2a04d107f871b9cd304c4e71a68daec4694bfd1961dbc3bf548c3727ed2064491e9c312c55fb9c39fb4e86072d23a2dcdc9443af0a2
   languageName: node
   linkType: hard
 
@@ -13260,6 +13270,18 @@ fsevents@^1.2.7:
   version: 6.0.9
   resolution: "react-error-overlay@npm:6.0.9"
   checksum: 695853bc885e798008a00c10d8d94e5ac91626e8130802fea37345f9c037f41b80104345db2ee87f225feb4a4ef71b0df572b17c378a6d397b6815f6d4a84293
+  languageName: node
+  linkType: hard
+
+"react-hot-toast@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "react-hot-toast@npm:2.0.0"
+  dependencies:
+    goober: ^2.0.35
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 6faede1674192594ab39d7c06357b4bbbdf752cd21f126956aacd8a664c15c3263d9b68adbc9525fa49d83ec6a41943e45a6476666f33187bdb64543abfd8265
   languageName: node
   linkType: hard
 

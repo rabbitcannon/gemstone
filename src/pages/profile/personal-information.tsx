@@ -1,7 +1,17 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useSelector } from 'redux/hooks/typedSelector'
+import { Toaster } from 'react-hot-toast'
 
 const PersonalInformation: React.FC = () => {
+  const profile: any = useSelector((state) => state.user.profile)
+
+  const savePersonalInformation = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    console.log('stop')
+    // toast('Hi')
+  }
+
   return (
     <div className="grid grid-cols-3 pb-10">
       <div>
@@ -10,7 +20,7 @@ const PersonalInformation: React.FC = () => {
       </div>
 
       <div className="col-span-2 panel border">
-        <form action="">
+        <form>
           <div className="panel__content">
             <div>
               <h3 className="text-lg leading-6 font-medium text-gray-900">Personal Information</h3>
@@ -30,6 +40,7 @@ const PersonalInformation: React.FC = () => {
                     id="first_name"
                     autoComplete="given-name"
                     className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    defaultValue={profile?.first_name}
                   />
                 </div>
               </div>
@@ -45,6 +56,7 @@ const PersonalInformation: React.FC = () => {
                     id="last_name"
                     autoComplete="family-name"
                     className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    defaultValue={profile?.last_name}
                   />
                 </div>
               </div>
@@ -60,6 +72,7 @@ const PersonalInformation: React.FC = () => {
                     type="email"
                     autoComplete="email"
                     className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    defaultValue={profile?.emails[0].address}
                   />
                 </div>
               </div>
@@ -142,12 +155,13 @@ const PersonalInformation: React.FC = () => {
             </div>
           </div>
           <div className="panel__footer text-right">
-            <a href="#">
-              <button className="btn bg-tag-orange">
-                <FontAwesomeIcon icon={['fas', 'save']} />
-                &nbsp; Save
-              </button>
-            </a>
+            <button className="btn bg-tag-orange" onSubmit={() => savePersonalInformation}>
+              <FontAwesomeIcon icon={['fas', 'save']} />
+              &nbsp; Save
+            </button>
+          </div>
+          <div>
+            <Toaster />
           </div>
         </form>
       </div>

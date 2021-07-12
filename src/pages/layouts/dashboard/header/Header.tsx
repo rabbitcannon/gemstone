@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector } from 'redux/hooks/typedSelector'
 import { RootState } from 'redux/store'
+import { Company } from 'redux/types/company.types'
 
 import './Header.scss'
 
@@ -10,11 +11,9 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = ({ location }) => {
-  // const [companyState, setCompanyState] = useState(undefined)
-  const { loading, company } = useSelector((state: RootState) => state.company)
+  const { company } = useSelector<Company>((state: RootState) => state.company)
 
-  console.log(loading)
-  console.log(typeof company)
+  console.log(company.name)
 
   return (
     <div className="w-auto bg-white py-4 px-8 text-gray-800 border-gray-300 border-b">
@@ -29,7 +28,7 @@ const Header: React.FC<IProps> = ({ location }) => {
           </span>
         </div>
         <div className="float-left text-gray-500">
-          Company Name
+          {company ? <span>{company.name}</span> : <span>N/A</span>}
           <FontAwesomeIcon size="lg" icon={['fas', 'caret-down']} />
         </div>
       </div>

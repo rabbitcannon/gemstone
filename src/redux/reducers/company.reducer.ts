@@ -6,7 +6,7 @@ type CompanyActions = GetCompanyAction | GetCompanyErrorAction
 interface CompanyState {
   loading: boolean
   error: string | null
-  company?: Company
+  company?: Company[]
 }
 
 const INITIAL_STATE: CompanyState = {
