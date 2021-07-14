@@ -13,8 +13,6 @@ interface IProps {
 const Header: React.FC<IProps> = ({ location }) => {
   const { company } = useSelector<Company>((state: RootState) => state.company)
 
-  console.log(company.name)
-
   return (
     <div className="w-auto bg-white py-4 px-8 text-gray-800 border-gray-300 border-b">
       <div className="float-left">

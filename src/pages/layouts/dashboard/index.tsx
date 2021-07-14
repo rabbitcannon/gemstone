@@ -29,11 +29,9 @@ class DashboardIndex extends Component<Props, IState> {
   }
 
   componentDidMount() {
-    console.log(this.props.isAuthenticated)
     this.props.getCurrentUser()
     this.props.getUserCompany()
     this.getCurrentLocation()
-    // const { getCurrentUser } = useUserAction()
   }
 
   getCurrentLocation = () => {

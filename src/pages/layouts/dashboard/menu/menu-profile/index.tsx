@@ -3,10 +3,26 @@ import { connect, useDispatch } from 'react-redux'
 import { User } from 'redux/types/user.types'
 import { push } from 'connected-react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { logoutCurrentUser } from 'redux/actions/user.actions'
+import { authPaths } from 'common/url-paths'
+import Axios from 'axios'
 
 const MenuProfileIndex: React.FC<IProfile> = ({ profile }) => {
   const dispatch = useDispatch()
+
+  const logoutUser = (event: any) => {
+    event.preventDefault()
+
+    Axios.post(authPaths.LOGOUT_URL)
+      .then((response: any) => {
+        if (response.status === 200) {
+          // @ts-ignore
+          window.location = '/login/'
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   return (
     <div className="flex-shrink-0 flex p-4">
@@ -31,7 +47,7 @@ const MenuProfileIndex: React.FC<IProfile> = ({ profile }) => {
             </a>
           </div>
           <div className="inline-block align-middle">
-            <a href="#" onClick={() => logoutCurrentUser()}>
+            <a href="#" onClick={logoutUser}>
               <FontAwesomeIcon size="lg" icon={['fas', 'sign-out-alt']} />
             </a>
           </div>
@@ -40,14 +56,6 @@ const MenuProfileIndex: React.FC<IProfile> = ({ profile }) => {
     </div>
   )
 }
-
-// type ILogout = ReturnType<typeof mapDispatchToProps> & {
-//   logoutCurrentUser: boolean
-// }
-
-const mapDispatchToProps = (dispatch: any) => ({
-  logoutCurrentUser: () => dispatch(logoutCurrentUser())
-})
 
 type IProfile = ReturnType<typeof mapStateToProps> & {
   readonly profile?:
@@ -64,4 +72,4 @@ const mapStateToProps = (state: User) => {
   }
 }
 
-export default connect(mapStateToProps, { mapDispatchToProps, push })(MenuProfileIndex)
+export default connect(mapStateToProps, { push })(MenuProfileIndex)
