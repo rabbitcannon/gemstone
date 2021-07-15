@@ -1,7 +1,7 @@
 import { User, UserTypes } from '../types/user.types'
-import { GetUserAction, GetUserErrorAction, LogInUser } from '../actions/user.actions'
+import { GetUserAction, GetUserErrorAction, LogInUser, LogoutUser } from '../actions/user.actions'
 
-type UserActions = LogInUser | GetUserAction | GetUserErrorAction
+type UserActions = LogInUser | LogoutUser | GetUserAction | GetUserErrorAction
 
 interface UserState {
   isAuthenticated: boolean
@@ -22,7 +22,7 @@ const INITIAL_STATE: UserState = {
 const userReducer = (state: UserState = INITIAL_STATE, action: UserActions): UserState => {
   switch (action.type) {
     case UserTypes.LOGIN_USER:
-      console.log(state)
+      console.log('State', state)
       return {
         ...state,
         isAuthenticated: action.payload
@@ -40,6 +40,13 @@ const userReducer = (state: UserState = INITIAL_STATE, action: UserActions): Use
       return {
         ...state,
         loading: false,
+        isAuthenticated: false
+      }
+
+    case UserTypes.LOGOUT_USER:
+      return {
+        ...state,
+        loading: true,
         isAuthenticated: false
       }
 

@@ -3,8 +3,7 @@ import Axios from 'axios'
 import { push } from 'connected-react-router'
 
 import { UserTypes, User } from 'redux/types/user.types'
-import { userPaths } from 'common/url-paths'
-// import { authPaths, userPaths } from 'common/url-paths'
+import { authPaths, userPaths } from 'common/url-paths'
 
 /*
 Action Interfaces
@@ -51,29 +50,28 @@ export const loginCurrentUser = () => {
 /*
 logout the current user
  */
-// export const logoutCurrentUser = () => {
-//   return async (dispatch: Dispatch<LogoutUser | any>) => {
-//     console.log('working?')
-//
-//     await Axios.post(authPaths.LOGOUT_URL)
-//       .then((response) => {
-//         console.log(response)
-//         dispatch({
-//           type: UserTypes.LOGOUT_USER,
-//           payload: response.data
-//         })
-//         dispatch(push('/login'))
-//       })
-//       .catch((error) => {
-//         console.log(error)
-//         dispatch({
-//           type: UserTypes.GET_USER_ERROR,
-//           payload: error.message
-//         })
-//         dispatch(push('/login'))
-//       })
-//   }
-// }
+export const logoutCurrentUser = () => {
+  console.log('Beginning')
+  return async (dispatch: Dispatch<LogoutUser | any>) => {
+    await Axios.post(authPaths.LOGOUT_URL)
+      .then((response) => {
+        console.log(response)
+        dispatch({
+          type: UserTypes.LOGOUT_USER,
+          payload: response.data
+        })
+        dispatch(push('/login'))
+      })
+      .catch((error) => {
+        console.log(error)
+        dispatch({
+          type: UserTypes.GET_USER_ERROR,
+          payload: error.message
+        })
+        dispatch(push('/login'))
+      })
+  }
+}
 
 /*
 Get Current User Information

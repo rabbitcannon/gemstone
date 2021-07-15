@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect, useDispatch } from 'react-redux'
 import { User } from 'redux/types/user.types'
 import { push } from 'connected-react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { authPaths } from 'common/url-paths'
+// import { logoutCurrentUser } from 'redux/actions/user.actions'
+import { authPaths, userPaths } from 'common/url-paths'
 import Axios from 'axios'
 
-const MenuProfileIndex: React.FC<IProfile> = ({ profile }) => {
+const MenuProfileIndex: React.FC<ProfileType> = ({ profile }) => {
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    Axios.get(userPaths.PROFILE_URL).then((response) => {
+      console.log(response)
+    })
+  })
 
   const logoutUser = (event: any) => {
     event.preventDefault()
@@ -48,6 +55,7 @@ const MenuProfileIndex: React.FC<IProfile> = ({ profile }) => {
           </div>
           <div className="inline-block align-middle">
             <a href="#" onClick={logoutUser}>
+              {/* <a href="#" onClick={logoutCurrentUser}> */}
               <FontAwesomeIcon size="lg" icon={['fas', 'sign-out-alt']} />
             </a>
           </div>
@@ -57,7 +65,7 @@ const MenuProfileIndex: React.FC<IProfile> = ({ profile }) => {
   )
 }
 
-type IProfile = ReturnType<typeof mapStateToProps> & {
+type ProfileType = ReturnType<typeof mapStateToProps> & {
   readonly profile?:
     | {
         first_name: string
@@ -66,10 +74,15 @@ type IProfile = ReturnType<typeof mapStateToProps> & {
     | undefined
 }
 
+// const mapDispatchToProps = (dispatch: any) => ({
+//   logoutCurrentUser: () => dispatch(logoutCurrentUser())
+// })
+
 const mapStateToProps = (state: User) => {
   return {
     profile: state.user.profile
   }
 }
 
+// export default connect(mapStateToProps, { mapDispatchToProps, push })(MenuProfileIndex)
 export default connect(mapStateToProps, { push })(MenuProfileIndex)

@@ -9,7 +9,8 @@ export const authPaths = {
 }
 
 export const userPaths = {
-  USER_URL: BASE_BEDROCK_URL + 'user'
+  USER_URL: BASE_BEDROCK_URL + 'user',
+  PROFILE_URL: BASE_BEDROCK_URL + 'profile'
 }
 
 export const companyPaths = {
